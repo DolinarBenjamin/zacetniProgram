@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.OleDb;
+using System.Data;
 
 namespace Kmetovanje
 {
@@ -12,6 +15,7 @@ namespace Kmetovanje
     class SQLFunkcije
     {
         public string Baza_povezava;
+
         private void Metoda_branje()
         {
             try
@@ -31,6 +35,20 @@ namespace Kmetovanje
                 tr.Close();
             }
             catch (Exception ex) { MessageBox.Show("Prišlo je do napake pri povezavi z bazo\n" + ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private DataTable SQLSelect(string stavek)
+        {
+            DataTable tabela = new DataTable();
+
+            if (Baza_povezava != null)
+            {
+                SqlConnection povezava = new SqlConnection(Baza_povezava);
+                povezava.Open();
+                SqlDataAdapter da = new SqlDataAdapter(stavek, povezava);
+                da.Fill(tabela);
+            }
+            return tabela;
         }
     }
 }
