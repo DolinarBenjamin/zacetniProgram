@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Kmetovanje
 {
-    public partial class Form1 : Form
+    public partial class Opravila : Form
     {
-        public Form1()
+        public Opravila()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Baje da dela?", "Opozorilo", MessageBoxButtons.OK);
         }
     }
 }
