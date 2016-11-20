@@ -96,6 +96,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Polje";
             this.Text = "Polje";
+            this.Load += new System.EventHandler(this.Polje_Load);
             this.tcPolje.ResumeLayout(false);
             this.ResumeLayout(false);
 

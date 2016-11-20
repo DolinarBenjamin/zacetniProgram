@@ -21,9 +21,12 @@ namespace Kmetovanje
         {
             test.Metoda_branje();
             dgwAktivneZiv.DataSource = test.SQLSelect("SELECT  IdZivS, IdZivOrig AS[Številka], ImeZiv AS[Ime Živali], DatRoj AS[Rojstvo], Spol.Ime_Spol AS[Spol], IMEPASD AS[Pasma] FROM Zivali, Pasme, Spol WHERE izloc = '0' AND Zivali.IdPas = Pasme.IDPAS AND Zivali.Spol = Spol.Id_Spol");
-            dgwAktivneZiv.Columns[0].Visible = false;
-            dgwAktivneZiv.Columns[2].Width = 250;
-            dgwAktivneZiv.Columns[3].Width = 120;
+            if (dgwAktivneZiv.Columns.Count > 0)
+            {
+                dgwAktivneZiv.Columns[0].Visible = false;
+                dgwAktivneZiv.Columns[2].Width = 250;
+                dgwAktivneZiv.Columns[3].Width = 120;
+            }
         }
 
         private void tcHlev_SelectedIndexChanged(object sender, EventArgs e)
