@@ -52,11 +52,21 @@
             this.dtpDatumOpombe = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPodrobnostiZivKont = new System.Windows.Forms.Button();
+            this.dgwOsemenitve = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblDatumOsemPreg = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbOsemenitevPregled = new System.Windows.Forms.ComboBox();
+            this.tbIzbranaZivOsem = new System.Windows.Forms.TextBox();
+            this.dtpDatumOsemPreg = new System.Windows.Forms.DateTimePicker();
+            this.gbOsemPreg = new System.Windows.Forms.GroupBox();
             this.tcHlev.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAktivneZiv)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).BeginInit();
             this.SuspendLayout();
             // 
             // tcHlev
@@ -110,6 +120,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.gbOsemPreg);
+            this.tabPage2.Controls.Add(this.dtpDatumOsemPreg);
+            this.tabPage2.Controls.Add(this.tbIzbranaZivOsem);
+            this.tabPage2.Controls.Add(this.cbOsemenitevPregled);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.lblDatumOsemPreg);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.dgwOsemenitve);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -298,6 +316,71 @@
             this.btnPodrobnostiZivKont.Text = "Podrobnosti živali";
             this.btnPodrobnostiZivKont.UseVisualStyleBackColor = true;
             // 
+            // dgwOsemenitve
+            // 
+            this.dgwOsemenitve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwOsemenitve.Location = new System.Drawing.Point(6, 6);
+            this.dgwOsemenitve.Name = "dgwOsemenitve";
+            this.dgwOsemenitve.Size = new System.Drawing.Size(762, 512);
+            this.dgwOsemenitve.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(964, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 20);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Osemenitev \\ Pregled";
+            // 
+            // lblDatumOsemPreg
+            // 
+            this.lblDatumOsemPreg.AutoSize = true;
+            this.lblDatumOsemPreg.Location = new System.Drawing.Point(964, 150);
+            this.lblDatumOsemPreg.Name = "lblDatumOsemPreg";
+            this.lblDatumOsemPreg.Size = new System.Drawing.Size(145, 20);
+            this.lblDatumOsemPreg.TabIndex = 2;
+            this.lblDatumOsemPreg.Text = "Datum Osemenitve";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(964, 90);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Izbrana žival";
+            // 
+            // cbOsemenitevPregled
+            // 
+            this.cbOsemenitevPregled.FormattingEnabled = true;
+            this.cbOsemenitevPregled.Location = new System.Drawing.Point(968, 46);
+            this.cbOsemenitevPregled.Name = "cbOsemenitevPregled";
+            this.cbOsemenitevPregled.Size = new System.Drawing.Size(221, 28);
+            this.cbOsemenitevPregled.TabIndex = 4;
+            // 
+            // tbIzbranaZivOsem
+            // 
+            this.tbIzbranaZivOsem.Location = new System.Drawing.Point(968, 113);
+            this.tbIzbranaZivOsem.Name = "tbIzbranaZivOsem";
+            this.tbIzbranaZivOsem.Size = new System.Drawing.Size(221, 26);
+            this.tbIzbranaZivOsem.TabIndex = 5;
+            // 
+            // dtpDatumOsemPreg
+            // 
+            this.dtpDatumOsemPreg.Location = new System.Drawing.Point(968, 173);
+            this.dtpDatumOsemPreg.Name = "dtpDatumOsemPreg";
+            this.dtpDatumOsemPreg.Size = new System.Drawing.Size(251, 26);
+            this.dtpDatumOsemPreg.TabIndex = 6;
+            // 
+            // gbOsemPreg
+            // 
+            this.gbOsemPreg.Location = new System.Drawing.Point(968, 233);
+            this.gbOsemPreg.Name = "gbOsemPreg";
+            this.gbOsemPreg.Size = new System.Drawing.Size(251, 202);
+            this.gbOsemPreg.TabIndex = 7;
+            this.gbOsemPreg.TabStop = false;
+            // 
             // Hlev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -313,9 +396,12 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAktivneZiv)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,5 +432,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnPodrobnostiZivKont;
+        private System.Windows.Forms.GroupBox gbOsemPreg;
+        private System.Windows.Forms.DateTimePicker dtpDatumOsemPreg;
+        private System.Windows.Forms.TextBox tbIzbranaZivOsem;
+        private System.Windows.Forms.ComboBox cbOsemenitevPregled;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDatumOsemPreg;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgwOsemenitve;
     }
 }
