@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,6 +33,15 @@ namespace Kmetovanje
                 tr.Close();
             }
             catch (Exception ex) { MessageBox.Show("Prišlo je do napake pri povezavi z bazo\n" + ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+        private void PodatkovniPrikaz()
+        {
+            DataTable OpombeZiv = new DataTable();
+            SqlConnection povezava = new SqlConnection(Baza_povezava);
+            povezava.Open();
+            SqlDataAdapter OpomZiv = new SqlDataAdapter("SELECT [ImeZiv] AS [Ime živali], [Datum_Opombe] AS [Datum], ImeOpombe.Ime_Opombe AS [Opomba], [Opis_Opombe] AS [Opis] FROM Opombe, Zivali, ImeOpombe WHERE Zivali.IdZivS=Opombe.IdZivS AND  izloc='0' AND ImeOpombe.Id_ImeOpombe=Opombe.Ime_Opombe", povezava);
+            OpomZiv.Fill(OpombeZiv);
+            povezava.Close();
         }
     }
 }
