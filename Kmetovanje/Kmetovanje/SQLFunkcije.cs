@@ -16,7 +16,7 @@ namespace Kmetovanje
     {
         public string Baza_povezava;
 
-        private void Metoda_branje()
+        public void Metoda_branje()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace Kmetovanje
             catch (Exception ex) { MessageBox.Show("Prišlo je do napake pri povezavi z bazo\n" + ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        private DataTable SQLSelect(string stavek)
+        public DataTable SQLSelect(string stavek)
         {
             DataTable tabela = new DataTable();
 
