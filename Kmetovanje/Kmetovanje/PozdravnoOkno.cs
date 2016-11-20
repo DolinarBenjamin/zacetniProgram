@@ -34,6 +34,7 @@ namespace Kmetovanje
             Polje nov = new Polje();
             nov.ShowDialog();
             this.Hide();
+            //ka pa poj k zapreš?
         }
     }
 }
