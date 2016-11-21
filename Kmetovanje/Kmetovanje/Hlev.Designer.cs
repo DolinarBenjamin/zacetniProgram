@@ -30,6 +30,7 @@
         {
             this.tcHlev = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnPodrobnostiAktZiv = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dtpDatumOpombe = new System.Windows.Forms.DateTimePicker();
             this.tbOpisOpombe = new System.Windows.Forms.TextBox();
@@ -85,6 +86,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnPodrobnostiAktZiv);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dtpDatumOpombe);
             this.tabPage1.Controls.Add(this.tbOpisOpombe);
@@ -103,9 +105,19 @@
             this.tabPage1.Text = "Aktivne živali";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnPodrobnostiAktZiv
+            // 
+            this.btnPodrobnostiAktZiv.Location = new System.Drawing.Point(1040, 19);
+            this.btnPodrobnostiAktZiv.Name = "btnPodrobnostiAktZiv";
+            this.btnPodrobnostiAktZiv.Size = new System.Drawing.Size(178, 42);
+            this.btnPodrobnostiAktZiv.TabIndex = 10;
+            this.btnPodrobnostiAktZiv.Text = "Podrobnosti o živali";
+            this.btnPodrobnostiAktZiv.UseVisualStyleBackColor = true;
+            this.btnPodrobnostiAktZiv.Click += new System.EventHandler(this.btnPodrobnostiAktZiv_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(814, 394);
+            this.button1.Location = new System.Drawing.Point(814, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 48);
             this.button1.TabIndex = 9;
@@ -114,14 +126,14 @@
             // 
             // dtpDatumOpombe
             // 
-            this.dtpDatumOpombe.Location = new System.Drawing.Point(814, 183);
+            this.dtpDatumOpombe.Location = new System.Drawing.Point(814, 216);
             this.dtpDatumOpombe.Name = "dtpDatumOpombe";
             this.dtpDatumOpombe.Size = new System.Drawing.Size(257, 26);
             this.dtpDatumOpombe.TabIndex = 8;
             // 
             // tbOpisOpombe
             // 
-            this.tbOpisOpombe.Location = new System.Drawing.Point(814, 244);
+            this.tbOpisOpombe.Location = new System.Drawing.Point(814, 277);
             this.tbOpisOpombe.Multiline = true;
             this.tbOpisOpombe.Name = "tbOpisOpombe";
             this.tbOpisOpombe.Size = new System.Drawing.Size(257, 132);
@@ -129,7 +141,7 @@
             // 
             // tbIzbranaZival
             // 
-            this.tbIzbranaZival.Location = new System.Drawing.Point(814, 50);
+            this.tbIzbranaZival.Location = new System.Drawing.Point(814, 83);
             this.tbIzbranaZival.Name = "tbIzbranaZival";
             this.tbIzbranaZival.Size = new System.Drawing.Size(257, 26);
             this.tbIzbranaZival.TabIndex = 6;
@@ -137,7 +149,7 @@
             // cbImeOpombe
             // 
             this.cbImeOpombe.FormattingEnabled = true;
-            this.cbImeOpombe.Location = new System.Drawing.Point(814, 113);
+            this.cbImeOpombe.Location = new System.Drawing.Point(814, 146);
             this.cbImeOpombe.Name = "cbImeOpombe";
             this.cbImeOpombe.Size = new System.Drawing.Size(257, 28);
             this.cbImeOpombe.TabIndex = 5;
@@ -145,7 +157,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(810, 221);
+            this.label6.Location = new System.Drawing.Point(810, 254);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 20);
             this.label6.TabIndex = 4;
@@ -154,7 +166,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(810, 160);
+            this.label5.Location = new System.Drawing.Point(810, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 20);
             this.label5.TabIndex = 3;
@@ -163,7 +175,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(810, 90);
+            this.label4.Location = new System.Drawing.Point(810, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 20);
             this.label4.TabIndex = 2;
@@ -172,7 +184,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(810, 27);
+            this.label3.Location = new System.Drawing.Point(810, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 20);
             this.label3.TabIndex = 1;
@@ -191,6 +203,7 @@
             this.dgwAktivneZiv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwAktivneZiv.Size = new System.Drawing.Size(767, 512);
             this.dgwAktivneZiv.TabIndex = 0;
+            this.dgwAktivneZiv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwAktivneZiv_CellClick);
             // 
             // tabPage2
             // 
@@ -440,5 +453,6 @@
         private System.Windows.Forms.Label lblDatumOsemPreg;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgwOsemenitve;
+        private System.Windows.Forms.Button btnPodrobnostiAktZiv;
     }
 }

@@ -50,5 +50,27 @@ namespace Kmetovanje
             }
             return tabela;
         }
+        public void NapolniComboBox()
+        {
+            try
+            {
+                DataTable comb = new DataTable();
+                SqlConnection povezava = new SqlConnection(Baza_povezava);
+                povezava.Open();
+                SqlDataAdapter dacombo = new SqlDataAdapter("SELECT * FROM ImeOpombe ", povezava);
+                dacombo.Fill(comb);
+                Dictionary<string, string> ImeOpombe = new Dictionary<string, string>();
+                foreach (DataRow dr in comb.Rows)
+                {
+                    ImeOpombe.Add(dr["Id_ImeOpombe"].ToString(), dr["Ime_Opombe"].ToString());
+                }
+                //cbImeOpombeZivali.DataSource = new BindingSource(ImeOpombe, null);
+                //cbImeOpombeZivali.DisplayMember = "Value";
+                //cbImeOpombeZivali.ValueMember = "Key";
+                //cbImeOpombeZivali.SelectedIndex = -1;
+                povezava.Close();
+            }
+            catch { throw; }
+        }
     }
 }
