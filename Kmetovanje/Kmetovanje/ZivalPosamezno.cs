@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Kmetovanje
 {
-    public partial class ŽivalPosamezno : Form
+    public partial class ZivalPosamezno : Form
     {
-        public ŽivalPosamezno()
+        public ZivalPosamezno()
         {
             InitializeComponent();
         }

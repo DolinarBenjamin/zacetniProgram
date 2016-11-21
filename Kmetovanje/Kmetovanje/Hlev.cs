@@ -45,5 +45,12 @@ namespace Kmetovanje
         {
 
         }
+
+        private void btnPodrobnostiZivAktiv_Click(object sender, EventArgs e)
+        {
+            ZivalPosamezno nov = new ZivalPosamezno();
+            this.Hide();
+            nov.ShowDialog();
+        }
     }
 }

@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,11 +80,11 @@
     <Compile Include="Zemljišče.Designer.cs">
       <DependentUpon>Zemljišče.cs</DependentUpon>
     </Compile>
-    <Compile Include="ŽivalPosamezno.cs">
+    <Compile Include="ZivalPosamezno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ŽivalPosamezno.Designer.cs">
-      <DependentUpon>ŽivalPosamezno.cs</DependentUpon>
+    <Compile Include="ZivalPosamezno.Designer.cs">
+      <DependentUpon>ZivalPosamezno.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Opravila.resx">
       <DependentUpon>Opravila.cs</DependentUpon>
@@ -109,8 +110,8 @@
     <EmbeddedResource Include="Zemljišče.resx">
       <DependentUpon>Zemljišče.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ŽivalPosamezno.resx">
-      <DependentUpon>ŽivalPosamezno.cs</DependentUpon>
+    <EmbeddedResource Include="ZivalPosamezno.resx">
+      <DependentUpon>ZivalPosamezno.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

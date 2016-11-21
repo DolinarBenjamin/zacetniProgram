@@ -17,10 +17,7 @@ namespace Kmetovanje
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Baje da dela?", "Opozorilo", MessageBoxButtons.OK);
-        }
+       
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -32,8 +29,8 @@ namespace Kmetovanje
         private void button1_Click_1(object sender, EventArgs e)
         {
             Polje nov = new Polje();
-            nov.ShowDialog();
             this.Hide();
+            nov.ShowDialog();
         }
     }
 }

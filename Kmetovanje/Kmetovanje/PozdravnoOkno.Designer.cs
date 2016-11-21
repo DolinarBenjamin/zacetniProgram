@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPolje = new System.Windows.Forms.Button();
+            this.btnHlev = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnPolje
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(236, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 54);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Polje";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnPolje.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPolje.Location = new System.Drawing.Point(168, 114);
+            this.btnPolje.Name = "btnPolje";
+            this.btnPolje.Size = new System.Drawing.Size(123, 54);
+            this.btnPolje.TabIndex = 0;
+            this.btnPolje.Text = "Polje";
+            this.btnPolje.UseVisualStyleBackColor = true;
+            this.btnPolje.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button2
+            // btnHlev
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(648, 114);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 54);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Hlev";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnHlev.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnHlev.Location = new System.Drawing.Point(770, 114);
+            this.btnHlev.Name = "btnHlev";
+            this.btnHlev.Size = new System.Drawing.Size(132, 54);
+            this.btnHlev.TabIndex = 1;
+            this.btnHlev.Text = "Hlev";
+            this.btnHlev.UseVisualStyleBackColor = true;
+            this.btnHlev.Click += new System.EventHandler(this.button2_Click);
             // 
             // PozdravnoOkno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 581);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHlev);
+            this.Controls.Add(this.btnPolje);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PozdravnoOkno";
@@ -71,8 +71,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPolje;
+        private System.Windows.Forms.Button btnHlev;
     }
 }
 
