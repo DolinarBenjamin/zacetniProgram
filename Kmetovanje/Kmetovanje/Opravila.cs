@@ -16,5 +16,10 @@ namespace Kmetovanje
         {
             InitializeComponent();
         }
+
+        private void btnUredi_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

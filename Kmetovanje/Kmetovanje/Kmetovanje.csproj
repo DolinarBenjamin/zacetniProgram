@@ -106,6 +106,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Zemljišče.resx">
       <DependentUpon>Zemljišče.cs</DependentUpon>
@@ -125,6 +126,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\207933.svg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\207933.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\polje.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\podatki.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

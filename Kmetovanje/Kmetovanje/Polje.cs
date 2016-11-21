@@ -16,5 +16,10 @@ namespace Kmetovanje
         {
             InitializeComponent();
         }
+
+        private void Polje_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

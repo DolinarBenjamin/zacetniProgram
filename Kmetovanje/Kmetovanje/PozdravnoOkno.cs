@@ -17,20 +17,24 @@ namespace Kmetovanje
             InitializeComponent();
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Baje da dela?", "Opozorilo", MessageBoxButtons.OK);
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Hlev nov = new Hlev();
             nov.ShowDialog();
-            this.Hide();
+           // this.Hide();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             Polje nov = new Polje();
-            this.Hide();
             nov.ShowDialog();
+            //this.Hide();
+            //ka pa poj k zapreš?
         }
     }
 }
