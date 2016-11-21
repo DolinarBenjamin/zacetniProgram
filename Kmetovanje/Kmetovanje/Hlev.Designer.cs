@@ -30,9 +30,27 @@
         {
             this.tcHlev = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dtpDatumOpombe = new System.Windows.Forms.DateTimePicker();
+            this.tbOpisOpombe = new System.Windows.Forms.TextBox();
+            this.tbIzbranaZival = new System.Windows.Forms.TextBox();
+            this.cbImeOpombe = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dgwAktivneZiv = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gbOsemPreg = new System.Windows.Forms.GroupBox();
+            this.dtpDatumOsemPreg = new System.Windows.Forms.DateTimePicker();
+            this.tbIzbranaZivOsem = new System.Windows.Forms.TextBox();
+            this.cbOsemenitevPregled = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblDatumOsemPreg = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgwOsemenitve = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnPodrobnostiZivKont = new System.Windows.Forms.Button();
             this.btnPrikaziKontrole = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,31 +60,13 @@
             this.dgwKontrole = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbImeOpombe = new System.Windows.Forms.ComboBox();
-            this.tbIzbranaZival = new System.Windows.Forms.TextBox();
-            this.tbOpisOpombe = new System.Windows.Forms.TextBox();
-            this.dtpDatumOpombe = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnPodrobnostiZivKont = new System.Windows.Forms.Button();
-            this.dgwOsemenitve = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblDatumOsemPreg = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbOsemenitevPregled = new System.Windows.Forms.ComboBox();
-            this.tbIzbranaZivOsem = new System.Windows.Forms.TextBox();
-            this.dtpDatumOsemPreg = new System.Windows.Forms.DateTimePicker();
-            this.gbOsemPreg = new System.Windows.Forms.GroupBox();
             this.tcHlev.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAktivneZiv)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).BeginInit();
             this.SuspendLayout();
             // 
             // tcHlev
@@ -103,6 +103,81 @@
             this.tabPage1.Text = "Aktivne živali";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(814, 394);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 48);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Dodaj opombo";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dtpDatumOpombe
+            // 
+            this.dtpDatumOpombe.Location = new System.Drawing.Point(814, 183);
+            this.dtpDatumOpombe.Name = "dtpDatumOpombe";
+            this.dtpDatumOpombe.Size = new System.Drawing.Size(257, 26);
+            this.dtpDatumOpombe.TabIndex = 8;
+            // 
+            // tbOpisOpombe
+            // 
+            this.tbOpisOpombe.Location = new System.Drawing.Point(814, 244);
+            this.tbOpisOpombe.Multiline = true;
+            this.tbOpisOpombe.Name = "tbOpisOpombe";
+            this.tbOpisOpombe.Size = new System.Drawing.Size(257, 132);
+            this.tbOpisOpombe.TabIndex = 7;
+            // 
+            // tbIzbranaZival
+            // 
+            this.tbIzbranaZival.Location = new System.Drawing.Point(814, 50);
+            this.tbIzbranaZival.Name = "tbIzbranaZival";
+            this.tbIzbranaZival.Size = new System.Drawing.Size(257, 26);
+            this.tbIzbranaZival.TabIndex = 6;
+            // 
+            // cbImeOpombe
+            // 
+            this.cbImeOpombe.FormattingEnabled = true;
+            this.cbImeOpombe.Location = new System.Drawing.Point(814, 113);
+            this.cbImeOpombe.Name = "cbImeOpombe";
+            this.cbImeOpombe.Size = new System.Drawing.Size(257, 28);
+            this.cbImeOpombe.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(810, 221);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 20);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Opis opombe";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(810, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Datum opombe";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(810, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(124, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Izberite opombo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(810, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Izbrana žival";
+            // 
             // dgwAktivneZiv
             // 
             this.dgwAktivneZiv.AllowUserToAddRows = false;
@@ -116,7 +191,6 @@
             this.dgwAktivneZiv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwAktivneZiv.Size = new System.Drawing.Size(767, 512);
             this.dgwAktivneZiv.TabIndex = 0;
-            this.dgwAktivneZiv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwAktivneZiv_CellClick);
             // 
             // tabPage2
             // 
@@ -136,6 +210,71 @@
             this.tabPage2.Text = "Osemenitve";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // gbOsemPreg
+            // 
+            this.gbOsemPreg.Location = new System.Drawing.Point(968, 233);
+            this.gbOsemPreg.Name = "gbOsemPreg";
+            this.gbOsemPreg.Size = new System.Drawing.Size(251, 202);
+            this.gbOsemPreg.TabIndex = 7;
+            this.gbOsemPreg.TabStop = false;
+            // 
+            // dtpDatumOsemPreg
+            // 
+            this.dtpDatumOsemPreg.Location = new System.Drawing.Point(968, 173);
+            this.dtpDatumOsemPreg.Name = "dtpDatumOsemPreg";
+            this.dtpDatumOsemPreg.Size = new System.Drawing.Size(251, 26);
+            this.dtpDatumOsemPreg.TabIndex = 6;
+            // 
+            // tbIzbranaZivOsem
+            // 
+            this.tbIzbranaZivOsem.Location = new System.Drawing.Point(968, 113);
+            this.tbIzbranaZivOsem.Name = "tbIzbranaZivOsem";
+            this.tbIzbranaZivOsem.Size = new System.Drawing.Size(221, 26);
+            this.tbIzbranaZivOsem.TabIndex = 5;
+            // 
+            // cbOsemenitevPregled
+            // 
+            this.cbOsemenitevPregled.FormattingEnabled = true;
+            this.cbOsemenitevPregled.Location = new System.Drawing.Point(968, 46);
+            this.cbOsemenitevPregled.Name = "cbOsemenitevPregled";
+            this.cbOsemenitevPregled.Size = new System.Drawing.Size(221, 28);
+            this.cbOsemenitevPregled.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(964, 90);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Izbrana žival";
+            // 
+            // lblDatumOsemPreg
+            // 
+            this.lblDatumOsemPreg.AutoSize = true;
+            this.lblDatumOsemPreg.Location = new System.Drawing.Point(964, 150);
+            this.lblDatumOsemPreg.Name = "lblDatumOsemPreg";
+            this.lblDatumOsemPreg.Size = new System.Drawing.Size(145, 20);
+            this.lblDatumOsemPreg.TabIndex = 2;
+            this.lblDatumOsemPreg.Text = "Datum Osemenitve";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(964, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 20);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Osemenitev \\ Pregled";
+            // 
+            // dgwOsemenitve
+            // 
+            this.dgwOsemenitve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwOsemenitve.Location = new System.Drawing.Point(6, 6);
+            this.dgwOsemenitve.Name = "dgwOsemenitve";
+            this.dgwOsemenitve.Size = new System.Drawing.Size(762, 512);
+            this.dgwOsemenitve.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnPodrobnostiZivKont);
@@ -153,6 +292,15 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Kontrole";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnPodrobnostiZivKont
+            // 
+            this.btnPodrobnostiZivKont.Location = new System.Drawing.Point(1012, 470);
+            this.btnPodrobnostiZivKont.Name = "btnPodrobnostiZivKont";
+            this.btnPodrobnostiZivKont.Size = new System.Drawing.Size(172, 48);
+            this.btnPodrobnostiZivKont.TabIndex = 7;
+            this.btnPodrobnostiZivKont.Text = "Podrobnosti živali";
+            this.btnPodrobnostiZivKont.UseVisualStyleBackColor = true;
             // 
             // btnPrikaziKontrole
             // 
@@ -232,155 +380,6 @@
             this.tabPage5.Text = "Vse živali";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(810, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Izbrana žival";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(810, 90);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Izberite opombo";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(810, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Datum opombe";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(810, 221);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 20);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Opis opombe";
-            // 
-            // cbImeOpombe
-            // 
-            this.cbImeOpombe.FormattingEnabled = true;
-            this.cbImeOpombe.Location = new System.Drawing.Point(814, 113);
-            this.cbImeOpombe.Name = "cbImeOpombe";
-            this.cbImeOpombe.Size = new System.Drawing.Size(257, 28);
-            this.cbImeOpombe.TabIndex = 5;
-            // 
-            // tbIzbranaZival
-            // 
-            this.tbIzbranaZival.Location = new System.Drawing.Point(814, 50);
-            this.tbIzbranaZival.Name = "tbIzbranaZival";
-            this.tbIzbranaZival.Size = new System.Drawing.Size(257, 26);
-            this.tbIzbranaZival.TabIndex = 6;
-            // 
-            // tbOpisOpombe
-            // 
-            this.tbOpisOpombe.Location = new System.Drawing.Point(814, 244);
-            this.tbOpisOpombe.Multiline = true;
-            this.tbOpisOpombe.Name = "tbOpisOpombe";
-            this.tbOpisOpombe.Size = new System.Drawing.Size(257, 132);
-            this.tbOpisOpombe.TabIndex = 7;
-            // 
-            // dtpDatumOpombe
-            // 
-            this.dtpDatumOpombe.Location = new System.Drawing.Point(814, 183);
-            this.dtpDatumOpombe.Name = "dtpDatumOpombe";
-            this.dtpDatumOpombe.Size = new System.Drawing.Size(257, 26);
-            this.dtpDatumOpombe.TabIndex = 8;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(814, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 48);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Dodaj opombo";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnPodrobnostiZivKont
-            // 
-            this.btnPodrobnostiZivKont.Location = new System.Drawing.Point(1012, 470);
-            this.btnPodrobnostiZivKont.Name = "btnPodrobnostiZivKont";
-            this.btnPodrobnostiZivKont.Size = new System.Drawing.Size(172, 48);
-            this.btnPodrobnostiZivKont.TabIndex = 7;
-            this.btnPodrobnostiZivKont.Text = "Podrobnosti živali";
-            this.btnPodrobnostiZivKont.UseVisualStyleBackColor = true;
-            // 
-            // dgwOsemenitve
-            // 
-            this.dgwOsemenitve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwOsemenitve.Location = new System.Drawing.Point(6, 6);
-            this.dgwOsemenitve.Name = "dgwOsemenitve";
-            this.dgwOsemenitve.Size = new System.Drawing.Size(762, 512);
-            this.dgwOsemenitve.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(964, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 20);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Osemenitev \\ Pregled";
-            // 
-            // lblDatumOsemPreg
-            // 
-            this.lblDatumOsemPreg.AutoSize = true;
-            this.lblDatumOsemPreg.Location = new System.Drawing.Point(964, 150);
-            this.lblDatumOsemPreg.Name = "lblDatumOsemPreg";
-            this.lblDatumOsemPreg.Size = new System.Drawing.Size(145, 20);
-            this.lblDatumOsemPreg.TabIndex = 2;
-            this.lblDatumOsemPreg.Text = "Datum Osemenitve";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(964, 90);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 20);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Izbrana žival";
-            // 
-            // cbOsemenitevPregled
-            // 
-            this.cbOsemenitevPregled.FormattingEnabled = true;
-            this.cbOsemenitevPregled.Location = new System.Drawing.Point(968, 46);
-            this.cbOsemenitevPregled.Name = "cbOsemenitevPregled";
-            this.cbOsemenitevPregled.Size = new System.Drawing.Size(221, 28);
-            this.cbOsemenitevPregled.TabIndex = 4;
-            // 
-            // tbIzbranaZivOsem
-            // 
-            this.tbIzbranaZivOsem.Location = new System.Drawing.Point(968, 113);
-            this.tbIzbranaZivOsem.Name = "tbIzbranaZivOsem";
-            this.tbIzbranaZivOsem.Size = new System.Drawing.Size(221, 26);
-            this.tbIzbranaZivOsem.TabIndex = 5;
-            // 
-            // dtpDatumOsemPreg
-            // 
-            this.dtpDatumOsemPreg.Location = new System.Drawing.Point(968, 173);
-            this.dtpDatumOsemPreg.Name = "dtpDatumOsemPreg";
-            this.dtpDatumOsemPreg.Size = new System.Drawing.Size(251, 26);
-            this.dtpDatumOsemPreg.TabIndex = 6;
-            // 
-            // gbOsemPreg
-            // 
-            this.gbOsemPreg.Location = new System.Drawing.Point(968, 233);
-            this.gbOsemPreg.Name = "gbOsemPreg";
-            this.gbOsemPreg.Size = new System.Drawing.Size(251, 202);
-            this.gbOsemPreg.TabIndex = 7;
-            this.gbOsemPreg.TabStop = false;
-            // 
             // Hlev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -390,6 +389,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Hlev";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hlev";
             this.Load += new System.EventHandler(this.Hlev_Load);
             this.tcHlev.ResumeLayout(false);
@@ -398,10 +398,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwAktivneZiv)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).EndInit();
             this.ResumeLayout(false);
 
         }

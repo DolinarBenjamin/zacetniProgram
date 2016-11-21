@@ -26,14 +26,14 @@ namespace Kmetovanje
         {
             Hlev nov = new Hlev();
             nov.ShowDialog();
-            this.Hide();
+           // this.Hide();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             Polje nov = new Polje();
             nov.ShowDialog();
-            this.Hide();
+            //this.Hide();
             //ka pa poj k zapreš?
         }
     }
