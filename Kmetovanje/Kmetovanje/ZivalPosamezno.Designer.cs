@@ -114,7 +114,7 @@
             this.dgwPosKontrole.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwPosKontrole.Location = new System.Drawing.Point(6, 6);
             this.dgwPosKontrole.Name = "dgwPosKontrole";
-            this.dgwPosKontrole.Size = new System.Drawing.Size(240, 150);
+            this.dgwPosKontrole.Size = new System.Drawing.Size(890, 356);
             this.dgwPosKontrole.TabIndex = 0;
             // 
             // tabPage2
@@ -133,7 +133,7 @@
             this.dgwPosTelitve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwPosTelitve.Location = new System.Drawing.Point(6, 6);
             this.dgwPosTelitve.Name = "dgwPosTelitve";
-            this.dgwPosTelitve.Size = new System.Drawing.Size(240, 150);
+            this.dgwPosTelitve.Size = new System.Drawing.Size(569, 150);
             this.dgwPosTelitve.TabIndex = 0;
             // 
             // tabPage3
@@ -151,7 +151,7 @@
             this.dgwPosLaktacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwPosLaktacije.Location = new System.Drawing.Point(16, 12);
             this.dgwPosLaktacije.Name = "dgwPosLaktacije";
-            this.dgwPosLaktacije.Size = new System.Drawing.Size(240, 150);
+            this.dgwPosLaktacije.Size = new System.Drawing.Size(809, 293);
             this.dgwPosLaktacije.TabIndex = 0;
             // 
             // label1

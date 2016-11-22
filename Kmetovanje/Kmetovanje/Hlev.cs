@@ -36,6 +36,11 @@ namespace Kmetovanje
                 dgwKontrole.DataSource = test.SQLSelect("SELECT [ImeZiv] AS [Ime], [roj] AS [Rojstvo], [idlak] AS [Laktacija], [dattel] AS [Telila], [datkon] AS [Kontrola], [y164] AS [KG Mleka], [y161] AS [Laktoza], [y162a] AS [Somat Cel],[y163] AS [Urea]," +
                                                      " [y166] AS [Maščoba], [y167] AS [Beljakovina] FROM Kontrola WHERE [datkon] BETWEEN '" + dtpODKontrole.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpDOKontrole.Value.ToString("yyyy-MM-dd") + "'");
             }
+            else if (tcHlev.SelectedIndex == 1)
+            {
+                dgwOsemenitve.DataSource = test.SQLSelect("SELECT dbo.Osemenitve.Id_Osemenitve, dbo.Osemenitve.Ime_PregOsem, dbo.Zivali.IdZivOrig, dbo.Zivali.ImeZiv, dbo.Zivali.DatRoj, dbo.Spol.Ime_Spol, dbo.Pasme.IMEPASD, dbo.Osemenitve.Datum_Osemenitve, dbo.Osemenitve.Datum_Pregleda, dbo.Osemenitve.Uspeh_Pregleda, dbo.Osemenitve.Datum_Telitve "+
+                                                          "FROM dbo.Osemenitve INNER JOIN dbo.Zivali ON dbo.Osemenitve.IdZivS = dbo.Zivali.IdZivS INNER JOIN dbo.Pasme ON dbo.Zivali.IdPas = dbo.Pasme.IDPAS INNER JOIN dbo.Spol ON dbo.Zivali.Spol = dbo.Spol.Id_Spol WHERE (dbo.Osemenitve.Uspeh_Pregleda='Breja')");
+            }
         }
 
         private void btnPrikaziKontrole_Click(object sender, EventArgs e)
