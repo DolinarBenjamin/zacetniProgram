@@ -68,11 +68,15 @@
             // 
             // tcZival
             // 
+            this.tcZival.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tcZival.Controls.Add(this.tabPage1);
             this.tcZival.Controls.Add(this.tabPage4);
             this.tcZival.Controls.Add(this.tabPage2);
             this.tcZival.Controls.Add(this.tabPage3);
+            this.tcZival.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tcZival.ItemSize = new System.Drawing.Size(50, 136);
             this.tcZival.Location = new System.Drawing.Point(12, 154);
+            this.tcZival.Multiline = true;
             this.tcZival.Name = "tcZival";
             this.tcZival.SelectedIndex = 0;
             this.tcZival.Size = new System.Drawing.Size(968, 401);
@@ -82,12 +86,13 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dgwPosOpombe);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tabPage1.Location = new System.Drawing.Point(140, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(960, 368);
+            this.tabPage1.Size = new System.Drawing.Size(824, 393);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Dnevnik posegov";
+            this.tabPage1.Text = "Posegi";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dgwPosOpombe
@@ -101,10 +106,10 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dgwPosKontrole);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Location = new System.Drawing.Point(140, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(960, 368);
+            this.tabPage4.Size = new System.Drawing.Size(824, 393);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Kontrole";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -120,10 +125,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgwPosTelitve);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(140, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(960, 368);
+            this.tabPage2.Size = new System.Drawing.Size(824, 393);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Telitve";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -139,9 +144,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgwPosLaktacije);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(140, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(960, 368);
+            this.tabPage3.Size = new System.Drawing.Size(824, 393);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Laktacije";
             this.tabPage3.UseVisualStyleBackColor = true;
