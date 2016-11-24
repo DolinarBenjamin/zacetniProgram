@@ -59,8 +59,8 @@ namespace Kmetovanje
         private void ZivalPosamezno_Load(object sender, EventArgs e)
         {
             posamezno.Metoda_branje();
-            dgwPosOpombe.DataSource = posamezno.SQLSelect("SELECT dbo.Zivali.ImeZiv, dbo.Opombe.Opis_Opombe, dbo.Opombe.Datum_Opombe, dbo.Opombe.Stanje, dbo.ImeOpombe.Ime_Opombe AS [Ime opombe]"+
-                                " FROM dbo.Zivali INNER JOIN dbo.Opombe ON dbo.Zivali.IdZivS = dbo.Opombe.IdZivS INNER JOIN dbo.ImeOpombe ON dbo.Opombe.Ime_Opombe = dbo.ImeOpombe.Id_ImeOpombe "+
+            dgwPosOpombe.DataSource = posamezno.SQLSelect("SELECT dbo.Zivali.ImeZiv, dbo.Opombe.Opis_Opombe, dbo.Opombe.Datum_Opombe, dbo.Opombe.Stanje, dbo.ImeOpombe.Ime_Opombe AS [Ime opombe]" +
+                                " FROM dbo.Zivali INNER JOIN dbo.Opombe ON dbo.Zivali.IdZivS = dbo.Opombe.IdZivS INNER JOIN dbo.ImeOpombe ON dbo.Opombe.Ime_Opombe = dbo.ImeOpombe.Id_ImeOpombe " +
                                 " WHERE (dbo.Zivali.IdZivOrig = '33881665')");
         }
 
@@ -76,5 +76,11 @@ namespace Kmetovanje
                                     " FROM dbo.Kontrola INNER JOIN dbo.Zivali ON dbo.Kontrola.idZiv_S = dbo.Zivali.IdZivS WHERE (dbo.Zivali.IdZivOrig = '33881665' AND idlak='1')");
             }
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
