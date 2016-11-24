@@ -35,7 +35,7 @@ namespace Kmetovanje
 
                 // Draw a different background color, and don't paint a focus rectangle.
                 _textBrush = new SolidBrush(Color.Red);// BARVA IZBRANEGA TEKSTA
-                g.FillRectangle(Brushes.Gray, e.Bounds);// BARVA IZBRANEGA GUMBA
+                g.FillRectangle(Brushes.White, e.Bounds);// BARVA IZBRANEGA GUMBA
             }
             else
             {
@@ -44,7 +44,7 @@ namespace Kmetovanje
             }
 
             // Use our own font.
-            Font _tabFont = new Font("Arial", (float)12.0, FontStyle.Bold, GraphicsUnit.Pixel);
+            Font _tabFont = new Font("Arial", (float)18.0, FontStyle.Bold, GraphicsUnit.Pixel);
 
             // Draw string. Center the text.
             StringFormat _stringFlags = new StringFormat();
