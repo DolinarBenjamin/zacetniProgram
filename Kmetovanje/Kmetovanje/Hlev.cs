@@ -44,7 +44,8 @@ namespace Kmetovanje
             else if (tcHlev.SelectedIndex == 1)
             {
                 cbOsemPreg.SelectedIndex = -1;
-                dgwOsemenitve.DataSource = test.SQLSelect("SELECT  IdZiv_S, IdZivOrig AS[Številka], ImeZiv AS[Ime Živali], DatRoj AS[Rojstvo], Spol.Ime_Spol AS[Spol], IMEPASD AS[Pasma] FROM Zivali, Pasme, Spol WHERE izloc = '0' AND Zivali.IdPas = Pasme.IDPAS AND Zivali.Spol = Spol.Id_Spol");
+                dgwOsemenitve.DataSource = test.SQLSelect("SELECT dbo.Zivali.IdZivOrig, dbo.Zivali.ImeZiv, dbo.Zivali.DatRoj, dbo.Pasme.IMEPASD, dbo.Biki.Ime AS [Oče], dbo.Zivali.IdMatS FROM dbo.Biki INNER JOIN dbo.Pasme ON dbo.Biki.IdPas = dbo.Pasme.IDPAS INNER JOIN dbo.Zivali ON dbo.Biki.IdZivS = dbo.Zivali.IdOceS AND dbo.Pasme.IDPAS = dbo.Zivali.IdPas INNER JOIN dbo.Spol ON dbo.Zivali.Spol = dbo.Spol.Id_Spol");
+                
             }
         }
 
