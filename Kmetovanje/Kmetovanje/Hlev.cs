@@ -20,13 +20,18 @@ namespace Kmetovanje
         private void Hlev_Load(object sender, EventArgs e)
         {
             test.Metoda_branje();
-            dgwAktivneZiv.DataSource = test.SQLSelect("SELECT  IdZivS, IdZivOrig AS[Številka], ImeZiv AS[Ime Živali], DatRoj AS[Rojstvo], Spol.Ime_Spol AS[Spol], IMEPASD AS[Pasma] FROM Zivali, Pasme, Spol WHERE izloc = '0' AND Zivali.IdPas = Pasme.IDPAS AND Zivali.Spol = Spol.Id_Spol");
+            dgwAktivneZiv.DataSource = test.SQLSelect("SELECT  IdZiv_S, IdZivOrig AS[Številka], ImeZiv AS[Ime Živali], DatRoj AS[Rojstvo], Spol.Ime_Spol AS[Spol], IMEPASD AS[Pasma] FROM Zivali, Pasme, Spol WHERE izloc = '0' AND Zivali.IdPas = Pasme.IDPAS AND Zivali.Spol = Spol.Id_Spol");
             if (dgwAktivneZiv.Columns.Count > 0)
             {
                 dgwAktivneZiv.Columns[0].Visible = false;
                 dgwAktivneZiv.Columns[2].Width = 250;
                 dgwAktivneZiv.Columns[3].Width = 120;
             }
+
+            cbBik.DataSource = new BindingSource(test.NapolniComboBox(), null);
+            cbBik.DisplayMember = "Value";
+            cbBik.ValueMember = "Key";
+            cbBik.SelectedIndex = -1;
         }
 
         private void tcHlev_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,8 +43,8 @@ namespace Kmetovanje
             }
             else if (tcHlev.SelectedIndex == 1)
             {
-                dgwOsemenitve.DataSource = test.SQLSelect("SELECT dbo.Osemenitve.Id_Osemenitve, dbo.Osemenitve.Ime_PregOsem, dbo.Zivali.IdZivOrig, dbo.Zivali.ImeZiv, dbo.Zivali.DatRoj, dbo.Spol.Ime_Spol, dbo.Pasme.IMEPASD, dbo.Osemenitve.Datum_Osemenitve, dbo.Osemenitve.Datum_Pregleda, dbo.Osemenitve.Uspeh_Pregleda, dbo.Osemenitve.Datum_Telitve "+
-                                                          "FROM dbo.Osemenitve INNER JOIN dbo.Zivali ON dbo.Osemenitve.IdZivS = dbo.Zivali.IdZivS INNER JOIN dbo.Pasme ON dbo.Zivali.IdPas = dbo.Pasme.IDPAS INNER JOIN dbo.Spol ON dbo.Zivali.Spol = dbo.Spol.Id_Spol WHERE (dbo.Osemenitve.Uspeh_Pregleda='Breja')");
+                cbOsemPreg.SelectedIndex = -1;
+                dgwOsemenitve.DataSource = test.SQLSelect("SELECT  IdZiv_S, IdZivOrig AS[Številka], ImeZiv AS[Ime Živali], DatRoj AS[Rojstvo], Spol.Ime_Spol AS[Spol], IMEPASD AS[Pasma] FROM Zivali, Pasme, Spol WHERE izloc = '0' AND Zivali.IdPas = Pasme.IDPAS AND Zivali.Spol = Spol.Id_Spol");
             }
         }
 
@@ -59,5 +64,53 @@ namespace Kmetovanje
             ZivalPosamezno zival = new ZivalPosamezno();
             zival.ShowDialog();
         }
+        #region Osemenitve
+        private void dtpDatumOsemPreg_ValueChanged(object sender, EventArgs e)
+        {
+            if (cbOsemPreg.SelectedIndex == 0)
+            {
+                dtpPredvidenPregTel.Value = dtpDatumOsemPreg.Value.AddDays(42);
+            }
+        }
+
+        private void cbOsemPreg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbOsemPreg.SelectedItem.ToString() == "Osemenitev")
+            {
+                lblOsemPreg.Text = "Osemenitev";
+                lblDatumOsemPreg.Text = "Datum osemenitve";
+                lblPredvidenDatum.Text = "Predviden datum pregleda";
+                chebOsemPregon.Visible = false;
+                lblIzidPreg.Visible = false;
+                btnDodajOsemPreg.Text = "Dodaj osemenitev";
+            }
+            else
+            {
+                lblOsemPreg.Text = "Pregled";
+                lblDatumOsemPreg.Text = "Datum pregleda";
+                lblPredvidenDatum.Text = "Predviden datum telitve";
+                cbBik.Enabled = false;
+                chebOsemPregon.Visible = true;
+                lblIzidPreg.Visible = true;
+                btnDodajOsemPreg.Text = "Dodaj pregled";
+            }
+        }
+        
+
+        private void dgwOsemenitve_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (cbOsemPreg.SelectedItem != null)
+            {
+                if (cbOsemPreg.SelectedItem.ToString() == "Osemenitev")
+                {
+                    tbIzbranaZivOsemPreg.Text = dgwOsemenitve.CurrentRow.Cells[2].Value.ToString();
+                }
+                else if (cbOsemPreg.SelectedItem.ToString() == "Pregled")
+                {
+                    tbIzbranaZivOsemPreg.Text = dgwOsemenitve.CurrentRow.Cells[2].Value.ToString();
+                }
+            }
+        }
+        #endregion
     }
 }

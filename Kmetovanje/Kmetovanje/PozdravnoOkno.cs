@@ -36,5 +36,12 @@ namespace Kmetovanje
             //this.Hide();
             //ka pa poj k zapreš?
         }
+        SQLFunkcije uvoz = new SQLFunkcije();
+        private void button3_Click(object sender, EventArgs e)
+        {
+            uvoz.Metoda_branje();
+            string DatKont = "E:\\MagisterijFarm\\ZivaliNovo\\Kontrole.xlsx";
+            uvoz.UvoziKontrole(DatKont);
+        }
     }
 }
