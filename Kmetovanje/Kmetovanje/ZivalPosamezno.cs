@@ -66,15 +66,15 @@ namespace Kmetovanje
                                 " FROM dbo.Zivali INNER JOIN dbo.Opombe ON dbo.Zivali.IdZiv_S = dbo.Opombe.IdZiv_S INNER JOIN dbo.ImeOpombe ON dbo.Opombe.Ime_Opombe = dbo.ImeOpombe.Id_ImeOpombe " +
                                 " WHERE (dbo.Zivali.IdZivOrig = '"+ Hlev.origst +"')");
             dgwPosOpombe.Columns[0].Visible = false;
-            dgwtest.DataSource = posamezno.SQLSelect("SELECT a.IdZivOrig AS [Ušesna št], a.ImeZiv AS [Ime živali], a.DatRoj AS [Rojena], b.Ime AS [Oče],c.imeziv AS [Mati] FROM Zivali a LEFT JOIN Biki b ON a.IdOceS=b.IdZiv_S LEFT JOIN Zivali c ON a.IdMatS=c.IdZiv_S WHERE (a.IdZivOrig ='" + Hlev.origst + "')");
-            tbPosImeZiv.Text = dgwtest.Rows[0].Cells[1].Value.ToString();
-            tbPosUsesStevZiv.Text= dgwtest.Rows[0].Cells[0].Value.ToString();
+            DataTable dt = posamezno.SQLSelect("SELECT a.IdZivOrig AS [Ušesna št], a.ImeZiv AS [Ime živali], a.DatRoj AS [Rojena], b.Ime AS [Oče],c.imeziv AS [Mati] FROM Zivali a LEFT JOIN Biki b ON a.IdOceS=b.IdZiv_S LEFT JOIN Zivali c ON a.IdMatS=c.IdZiv_S WHERE (a.IdZivOrig ='" + Hlev.origst + "')");
+            tbPosImeZiv.Text = dt.Rows[0][1].ToString();
+            tbPosUsesStevZiv.Text= dt.Rows[0][0].ToString();
             DateTime roj;
-            DateTime.TryParse(dgwtest.Rows[0].Cells[2].Value.ToString(), out roj);
+            DateTime.TryParse(dt.Rows[0][2].ToString(), out roj);
             dtpPosRojstvoZiv.Value = roj;
-            tbPosMati.Text = dgwtest.Rows[0].Cells[4].Value.ToString();
-            tbPosOce.Text = dgwtest.Rows[0].Cells[3].Value.ToString();
-            //a bi ti to znou kej drugač rešit???
+            tbPosMati.Text = dt.Rows[0][4].ToString();
+            tbPosOce.Text = dt.Rows[0][3].ToString();
+            
 
         }
 
@@ -82,7 +82,7 @@ namespace Kmetovanje
         {
             if (tcZival.SelectedIndex == 2)
             {
-                dgwPosTelitve.DataSource = posamezno.SQLSelect("SELECT IdZivOrig, ImeZiv, DatRoj, Spol FROM dbo.Zivali WHERE (IdMat = 'SVN    " + Hlev.origst + "')");
+                dgwPosTelitve.DataSource = posamezno.SQLSelect("SELECT IdZivOrig, ImeZiv, DatRoj, Spol FROM dbo.Zivali WHERE (IdMatS = '"+Hlev.sekvenca+"')");
             }
             else if (tcZival.SelectedIndex == 1)
             {
@@ -90,7 +90,11 @@ namespace Kmetovanje
             }
             else if (tcZival.SelectedIndex == 3)
             {
-                dgwPosLaktacije.DataSource= posamezno.SQLSelect("SELECT TOP (100) PERCENT ImeZiv, roj, idlak, mdn, last064, last066, last067, last264, last266, last267 FROM dbo.Laktacije WHERE (idzivorig = '" + Hlev.origst + "') ORDER BY idlak");
+                dgwPosLaktacije.DataSource= posamezno.SQLSelect("SELECT  idlak, mdn, last064, last066, last067, last264, last266, last267 FROM dbo.Laktacije WHERE (idzivorig = '" + Hlev.origst + "') ORDER BY idlak");
+                DataTable lak = posamezno.SQLSelect("SELECT SUM(last264) AS [Življenjska prireja], SUM(last265) AS [Kg Maščobe], SUM(last268) AS [Kg Beljakovine], MAX(idlak) AS Laktacij, SUM(last266) / MAX(idlak) AS [Povprečno maščobo], SUM(last267) / MAX(idlak) AS [Povprečno Beljakovino] FROM dbo.Laktacije WHERE (idzivorig = '" + Hlev.origst + "')");
+                tbPosLitrov.Text = lak.Rows[0][0].ToString();
+                tbPosMascobe.Text= lak.Rows[0][4].ToString();
+                tbPosBeljakovin.Text= lak.Rows[0][5].ToString();
             }
         }
 

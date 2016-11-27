@@ -42,7 +42,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgwAktivneZiv = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnDodajOsemPreg = new System.Windows.Forms.Button();
             this.gbOsemPreg = new System.Windows.Forms.GroupBox();
+            this.cbBik = new System.Windows.Forms.ComboBox();
+            this.chebOsemPregon = new System.Windows.Forms.CheckBox();
+            this.dtpPredvidenPregTel = new System.Windows.Forms.DateTimePicker();
+            this.lblIzidPreg = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblPredvidenDatum = new System.Windows.Forms.Label();
             this.dtpDatumOsemPreg = new System.Windows.Forms.DateTimePicker();
             this.tbIzbranaZivOsemPreg = new System.Windows.Forms.TextBox();
             this.cbOsemPreg = new System.Windows.Forms.ComboBox();
@@ -50,6 +57,7 @@
             this.lblDatumOsemPreg = new System.Windows.Forms.Label();
             this.lblOsemPreg = new System.Windows.Forms.Label();
             this.dgwOsemenitve = new System.Windows.Forms.DataGridView();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnPodrobnostiZivKont = new System.Windows.Forms.Button();
             this.btnPrikaziKontrole = new System.Windows.Forms.Button();
@@ -61,14 +69,7 @@
             this.dgwKontrole = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.btnDodajOsemPreg = new System.Windows.Forms.Button();
-            this.lblPredvidenDatum = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblIzidPreg = new System.Windows.Forms.Label();
-            this.dtpPredvidenPregTel = new System.Windows.Forms.DateTimePicker();
-            this.chebOsemPregon = new System.Windows.Forms.CheckBox();
-            this.cbBik = new System.Windows.Forms.ComboBox();
+            this.dgwVseZivali = new System.Windows.Forms.DataGridView();
             this.tcHlev.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAktivneZiv)).BeginInit();
@@ -77,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwVseZivali)).BeginInit();
             this.SuspendLayout();
             // 
             // tcHlev
@@ -234,6 +237,15 @@
             this.tabPage2.Text = "Osemenitve";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnDodajOsemPreg
+            // 
+            this.btnDodajOsemPreg.Location = new System.Drawing.Point(993, 450);
+            this.btnDodajOsemPreg.Name = "btnDodajOsemPreg";
+            this.btnDodajOsemPreg.Size = new System.Drawing.Size(180, 43);
+            this.btnDodajOsemPreg.TabIndex = 8;
+            this.btnDodajOsemPreg.Text = "Dodaj osemenitev";
+            this.btnDodajOsemPreg.UseVisualStyleBackColor = true;
+            // 
             // gbOsemPreg
             // 
             this.gbOsemPreg.Controls.Add(this.cbBik);
@@ -247,6 +259,59 @@
             this.gbOsemPreg.Size = new System.Drawing.Size(275, 230);
             this.gbOsemPreg.TabIndex = 7;
             this.gbOsemPreg.TabStop = false;
+            // 
+            // cbBik
+            // 
+            this.cbBik.FormattingEnabled = true;
+            this.cbBik.Location = new System.Drawing.Point(9, 45);
+            this.cbBik.Name = "cbBik";
+            this.cbBik.Size = new System.Drawing.Size(251, 28);
+            this.cbBik.TabIndex = 11;
+            // 
+            // chebOsemPregon
+            // 
+            this.chebOsemPregon.AutoSize = true;
+            this.chebOsemPregon.Location = new System.Drawing.Point(9, 116);
+            this.chebOsemPregon.Name = "chebOsemPregon";
+            this.chebOsemPregon.Size = new System.Drawing.Size(65, 24);
+            this.chebOsemPregon.TabIndex = 9;
+            this.chebOsemPregon.Text = "Breja";
+            this.chebOsemPregon.UseVisualStyleBackColor = true;
+            // 
+            // dtpPredvidenPregTel
+            // 
+            this.dtpPredvidenPregTel.Enabled = false;
+            this.dtpPredvidenPregTel.Location = new System.Drawing.Point(9, 186);
+            this.dtpPredvidenPregTel.Name = "dtpPredvidenPregTel";
+            this.dtpPredvidenPregTel.Size = new System.Drawing.Size(251, 26);
+            this.dtpPredvidenPregTel.TabIndex = 10;
+            // 
+            // lblIzidPreg
+            // 
+            this.lblIzidPreg.AutoSize = true;
+            this.lblIzidPreg.Location = new System.Drawing.Point(6, 93);
+            this.lblIzidPreg.Name = "lblIzidPreg";
+            this.lblIzidPreg.Size = new System.Drawing.Size(100, 20);
+            this.lblIzidPreg.TabIndex = 9;
+            this.lblIzidPreg.Text = "Izid pregleda";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(31, 20);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Bik";
+            // 
+            // lblPredvidenDatum
+            // 
+            this.lblPredvidenDatum.AutoSize = true;
+            this.lblPredvidenDatum.Location = new System.Drawing.Point(6, 161);
+            this.lblPredvidenDatum.Name = "lblPredvidenDatum";
+            this.lblPredvidenDatum.Size = new System.Drawing.Size(51, 20);
+            this.lblPredvidenDatum.TabIndex = 0;
+            this.lblPredvidenDatum.Text = "label9";
             // 
             // dtpDatumOsemPreg
             // 
@@ -310,6 +375,15 @@
             this.dgwOsemenitve.Size = new System.Drawing.Size(914, 512);
             this.dgwOsemenitve.TabIndex = 0;
             this.dgwOsemenitve.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwOsemenitve_CellClick);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1240, 524);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Pregled Osemenitev";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -409,6 +483,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.dgwVseZivali);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1240, 524);
@@ -416,76 +491,13 @@
             this.tabPage5.Text = "Vse živali";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // dgwVseZivali
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1240, 524);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Pregled Osemenitev";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // btnDodajOsemPreg
-            // 
-            this.btnDodajOsemPreg.Location = new System.Drawing.Point(993, 450);
-            this.btnDodajOsemPreg.Name = "btnDodajOsemPreg";
-            this.btnDodajOsemPreg.Size = new System.Drawing.Size(180, 43);
-            this.btnDodajOsemPreg.TabIndex = 8;
-            this.btnDodajOsemPreg.Text = "Dodaj osemenitev";
-            this.btnDodajOsemPreg.UseVisualStyleBackColor = true;
-            // 
-            // lblPredvidenDatum
-            // 
-            this.lblPredvidenDatum.AutoSize = true;
-            this.lblPredvidenDatum.Location = new System.Drawing.Point(6, 161);
-            this.lblPredvidenDatum.Name = "lblPredvidenDatum";
-            this.lblPredvidenDatum.Size = new System.Drawing.Size(51, 20);
-            this.lblPredvidenDatum.TabIndex = 0;
-            this.lblPredvidenDatum.Text = "label9";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 20);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Bik";
-            // 
-            // lblIzidPreg
-            // 
-            this.lblIzidPreg.AutoSize = true;
-            this.lblIzidPreg.Location = new System.Drawing.Point(6, 93);
-            this.lblIzidPreg.Name = "lblIzidPreg";
-            this.lblIzidPreg.Size = new System.Drawing.Size(100, 20);
-            this.lblIzidPreg.TabIndex = 9;
-            this.lblIzidPreg.Text = "Izid pregleda";
-            // 
-            // dtpPredvidenPregTel
-            // 
-            this.dtpPredvidenPregTel.Enabled = false;
-            this.dtpPredvidenPregTel.Location = new System.Drawing.Point(9, 186);
-            this.dtpPredvidenPregTel.Name = "dtpPredvidenPregTel";
-            this.dtpPredvidenPregTel.Size = new System.Drawing.Size(251, 26);
-            this.dtpPredvidenPregTel.TabIndex = 10;
-            // 
-            // chebOsemPregon
-            // 
-            this.chebOsemPregon.AutoSize = true;
-            this.chebOsemPregon.Location = new System.Drawing.Point(9, 116);
-            this.chebOsemPregon.Name = "chebOsemPregon";
-            this.chebOsemPregon.Size = new System.Drawing.Size(65, 24);
-            this.chebOsemPregon.TabIndex = 9;
-            this.chebOsemPregon.Text = "Breja";
-            this.chebOsemPregon.UseVisualStyleBackColor = true;
-            // 
-            // cbBik
-            // 
-            this.cbBik.FormattingEnabled = true;
-            this.cbBik.Location = new System.Drawing.Point(9, 45);
-            this.cbBik.Name = "cbBik";
-            this.cbBik.Size = new System.Drawing.Size(251, 28);
-            this.cbBik.TabIndex = 11;
+            this.dgwVseZivali.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwVseZivali.Location = new System.Drawing.Point(20, 20);
+            this.dgwVseZivali.Name = "dgwVseZivali";
+            this.dgwVseZivali.Size = new System.Drawing.Size(1150, 490);
+            this.dgwVseZivali.TabIndex = 0;
             // 
             // Hlev
             // 
@@ -511,6 +523,8 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwVseZivali)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -558,5 +572,6 @@
         private System.Windows.Forms.Label lblPredvidenDatum;
         private System.Windows.Forms.ComboBox cbBik;
         private System.Windows.Forms.CheckBox chebOsemPregon;
+        private System.Windows.Forms.DataGridView dgwVseZivali;
     }
 }

@@ -118,13 +118,14 @@ namespace Kmetovanje
                 if (dr["datkon"].ToString() != null)
                 {
                     DateTime datumkont;
-                    DateTime.TryParse(dr["datkon"].ToString(), out datumkont);
+                    DateTime.TryParse(dr["datkon"].ToString(),out datumkont);
+                    
                     int id;
                     int.TryParse(dr["Id_Kont"].ToString(), out id);
                     int sekvenca;
                     int.TryParse(dr["IdZiv_S"].ToString(), out sekvenca);
-                    SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Kontrola WHERE Id_Kont = " + id + " AND datkon=" + datumkont + " AND IdZiv_S=" + sekvenca + ")"
-                    + "UPDATE Kontrola SET IdZiv_S=@idZiv_S,ImeZiv=@ImeZiv,roj=@roj,idlak=@idlak,dattel=@dattel,datkon=@datkon,y161=@y161,y162a=@y162a,y163=@y163,y164=@y164,y165=@y165,y166=@y166,y167=@y167,y168=@y168 WHERE Id_Kont = " + id 
+                    SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Kontrola WHERE Id_Kont = " + id + " AND datkon='" + datumkont.ToString("yyyy-MM-dd") + "' AND IdZiv_S=" + sekvenca + ")"
+                    + "UPDATE Kontrola SET IdZiv_S=@idZiv_S,ImeZiv=@ImeZiv,roj=@roj,idlak=@idlak,dattel=@dattel,datkon=@datkon,y161=@y161,y162a=@y162a, y163=@y163,y164=@y164,y165=@y165,y166=@y166,y167=@y167,y168=@y168 WHERE Id_Kont = " + id 
                     + " ELSE "
                     + "INSERT INTO Kontrola(idZiv_S,ImeZiv,roj,idlak,dattel,datkon,y161,y162a,y163,y164,y165,y166,y167,y168) VALUES(@idZiv_S,@ImeZiv,@roj,@idlak,@dattel,@datkon,@y161,@y162a,@y163,@y164,@y165,@y166,@y167,@y168)", povezava);
 
@@ -136,7 +137,7 @@ namespace Kmetovanje
                     cm.Parameters.AddWithValue("@ImeZiv", dr["ImeZiv"].ToString());
                     try
                     {
-                        cm.Parameters.AddWithValue("@roj", DateTime.Parse(dr["roj"].ToString()));
+                        cm.Parameters.AddWithValue("@roj", DateTime.Parse(dr["roj"].ToString()).ToString("yyyy-MM-dd"));
                     }
                     catch { cm.Parameters.AddWithValue("@roj", DBNull.Value); }
                     int laktacija;
@@ -146,12 +147,12 @@ namespace Kmetovanje
                         cm.Parameters.AddWithValue("@idlak", DBNull.Value);
                     try
                     {
-                        cm.Parameters.AddWithValue("@dattel", DateTime.Parse(dr["dattel"].ToString()));
+                        cm.Parameters.AddWithValue("@dattel", DateTime.Parse(dr["dattel"].ToString()).ToString("yyyy-MM-dd"));
                     }
                     catch { cm.Parameters.AddWithValue("@dattel", DBNull.Value); }
                     try
                     {
-                        cm.Parameters.AddWithValue("@datkon", DateTime.Parse(dr["datkon"].ToString()));
+                        cm.Parameters.AddWithValue("@datkon", DateTime.Parse(dr["datkon"].ToString()).ToString("yyyy-MM-dd"));
                     }
                     catch { cm.Parameters.AddWithValue("@datkon", DBNull.Value); }
                     decimal y161;
@@ -200,6 +201,113 @@ namespace Kmetovanje
             povezava.Close();
             excelReader.Close();
         }
+        public void excelvSQL(string datkont)
+        {
+            FileStream stream = File.Open(datkont, FileMode.Open, FileAccess.Read);
+            //BinaryReader br =new BinaryReader( File.Open(datoteka, FileMode.Open, FileAccess.Read));
+            //1. Reading from a binary Excel file ('97-2003 format; *.xls)
+            //IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+            //...
+            //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
+            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            //...
+            //3. DataSet - The result of each spreadsheet will be created in the result.Tables
+            // DataSet result = excelReader.AsDataSet();
+            //...
+            //4. DataSet - Create column names from first row
+            excelReader.IsFirstRowAsColumnNames = true;
+            DataSet result = excelReader.AsDataSet();
+            DataTable tabela = new DataTable();
+            tabela = result.Tables[0];
+            SqlConnection povezava = new SqlConnection(Baza_povezava);
+            povezava.Open();
+            foreach (DataRow dr in tabela.Rows)
+            {
+                int id;
+                int.TryParse(dr["idZiv_S"].ToString(), out id);
+                SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Kontrola WHERE idZiv_S = " + id + ")"
+                    + "UPDATE Kontrola SET ImeZiv=@ImeZiv,roj=@roj,idlak=@idlak,dattel=@dattel,datkon=@datkon,y161=@y161,y162a=@y162a,y163=@y163,y164=@y164,y165=@y165,y166=@y166,y167=@y167,y168=@y168 WHERE idZiv_S = " + id
+                    + " ELSE "
+                    + "INSERT INTO Kontrola(idZiv_S,ImeZiv,roj,idlak,dattel,datkon,y161,y162a,y163,y164,y165,y166,y167,y168) VALUES(@idZiv_S,@ImeZiv,@roj,@idlak,@dattel,@datkon,@y161,@y162a,@y163,@y164,@y165,@y166,@y167,@y168)", povezava);
+                int kravaSek;
+                if (int.TryParse(dr["idZiv_S"].ToString(), out kravaSek))
+                    cm.Parameters.AddWithValue("@idZiv_S", kravaSek);
+                else
+                    cm.Parameters.AddWithValue("@idZiv_S", DBNull.Value);
+                cm.Parameters.AddWithValue("@ImeZiv", dr["ImeZiv"].ToString());
+                try
+                {
+                    cm.Parameters.AddWithValue("@roj", DateTime.Parse(dr["roj"].ToString()));
+                }
+                catch { cm.Parameters.AddWithValue("@roj", DBNull.Value); }
+                int laktacija;
+                if (int.TryParse(dr["idlak"].ToString(), out laktacija))
+                    cm.Parameters.AddWithValue("@idlak", laktacija);
+                else
+                    cm.Parameters.AddWithValue("@idlak", DBNull.Value);
+                try
+                {
+                    cm.Parameters.AddWithValue("@dattel", DateTime.Parse(dr["dattel"].ToString()));
+                }
+                catch { cm.Parameters.AddWithValue("@dattel", DBNull.Value); }
+                try
+                {
+                    cm.Parameters.AddWithValue("@datkon", DateTime.Parse(dr["datkon"].ToString()));
+                }
+                catch { cm.Parameters.AddWithValue("@datkon", DBNull.Value); }
+                decimal y161;
+                if (decimal.TryParse(dr["y161"].ToString(), out y161))
+                    cm.Parameters.AddWithValue("@y161", y161);
+                else
+                    cm.Parameters.AddWithValue("@y161", DBNull.Value);
+                decimal y162a;
+                if (decimal.TryParse(dr["y162a"].ToString(), out y162a))
+                    cm.Parameters.AddWithValue("@y162a", y162a);
+                else
+                    cm.Parameters.AddWithValue("@y162a", DBNull.Value);
+                decimal y163;
+                if (decimal.TryParse(dr["y163"].ToString(), out y163))
+                    cm.Parameters.AddWithValue("@y163", y163);
+                else
+                    cm.Parameters.AddWithValue("@y163", DBNull.Value);
+                decimal y164;
+                if (decimal.TryParse(dr["y164"].ToString(), out y164))
+                    cm.Parameters.AddWithValue("@y164", y164);
+                else
+                    cm.Parameters.AddWithValue("@y164", DBNull.Value);
+                decimal y165;
+                if (decimal.TryParse(dr["y165"].ToString(), out y165))
+                    cm.Parameters.AddWithValue("@y165", y165);
+                else
+                    cm.Parameters.AddWithValue("@y165", DBNull.Value);
+                decimal y166;
+                if (decimal.TryParse(dr["y166"].ToString(), out y166))
+                    cm.Parameters.AddWithValue("@y166", y166);
+                else
+                    cm.Parameters.AddWithValue("@y166", DBNull.Value);
+                decimal y167;
+                if (decimal.TryParse(dr["y167"].ToString(), out y167))
+                    cm.Parameters.AddWithValue("@y167", y167);
+                else
+                    cm.Parameters.AddWithValue("@y167", DBNull.Value);
+                decimal y168;
+                if (decimal.TryParse(dr["y168"].ToString(), out y168))
+                    cm.Parameters.AddWithValue("@y168", y168);
+                else
+                    cm.Parameters.AddWithValue("@y168", DBNull.Value);
+                cm.ExecuteNonQuery();
+            }
+            povezava.Close();
+            //5. Data Reader methods
+            //while (excelReader.Read())
+            //{
+            //    excelReader.GetInt32(0);
+            //}
+
+            //6. Free resources (IExcelDataReader is IDisposable)
+            excelReader.Close();
+        }
+
         public void UvoziZivali(string datotekaKrave)
         {
 

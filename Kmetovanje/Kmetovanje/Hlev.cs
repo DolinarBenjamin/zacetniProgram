@@ -36,7 +36,7 @@ namespace Kmetovanje
 
         private void tcHlev_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tcHlev.SelectedIndex == 2)
+            if (tcHlev.SelectedIndex == 3)
             {
                 dgwKontrole.DataSource = test.SQLSelect("SELECT [ImeZiv] AS [Ime], [roj] AS [Rojstvo], [idlak] AS [Laktacija], [dattel] AS [Telila], [datkon] AS [Kontrola], [y164] AS [KG Mleka], [y161] AS [Laktoza], [y162a] AS [Somat Cel],[y163] AS [Urea]," +
                                                      " [y166] AS [Maščoba], [y167] AS [Beljakovina] FROM Kontrola WHERE [datkon] BETWEEN '" + dtpODKontrole.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpDOKontrole.Value.ToString("yyyy-MM-dd") + "'");
@@ -46,6 +46,10 @@ namespace Kmetovanje
                 cbOsemPreg.SelectedIndex = -1;
                 dgwOsemenitve.DataSource = test.SQLSelect("SELECT a.IdZivOrig AS [Ušesna št], a.ImeZiv AS [Ime živali], a.DatRoj AS [Rojena], p.ImePasD AS [Pasma], b.Ime AS [Oče],c.imeziv AS [Mati] FROM Zivali a LEFT JOIN Biki b ON a.IdOceS=b.IdZiv_S LEFT JOIN Zivali c ON a.IdMatS=c.IdZiv_S LEFT JOIN Pasme p ON a.IdPas=p.IdPas");
                 
+            }
+            else if (tcHlev.SelectedIndex==5)
+            {
+                dgwVseZivali.DataSource = test.SQLSelect("SELECT  IdZivOrig AS[Številka], ImeZiv AS[Ime Živali], DatRoj AS[Rojstvo], Spol.Ime_Spol AS[Spol], IMEPASD AS[Pasma] FROM Zivali, Pasme, Spol WHERE Zivali.IdPas = Pasme.IDPAS AND Zivali.Spol = Spol.Id_Spol");
             }
         }
 
