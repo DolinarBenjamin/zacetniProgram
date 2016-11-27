@@ -58,7 +58,7 @@ namespace Kmetovanje
                 DataTable biki = new DataTable();
                 SqlConnection povezava = new SqlConnection(Baza_povezava);
                 povezava.Open();
-                SqlDataAdapter dabiki = new SqlDataAdapter("SELECT Id_Bik, Ime FROM Biki ", povezava);
+                SqlDataAdapter dabiki = new SqlDataAdapter("SELECT Id_Bik, Ime FROM Biki", povezava);
                 dabiki.Fill(biki);
                 Dictionary<string, string> ImeBika = new Dictionary<string, string>();
                 foreach (DataRow dr in biki.Rows)
