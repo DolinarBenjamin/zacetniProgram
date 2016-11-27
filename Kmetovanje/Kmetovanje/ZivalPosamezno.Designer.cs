@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcZival = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -100,6 +100,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dtpPosRojstvoZiv = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnNazaj = new System.Windows.Forms.Button();
+            this.btnNaprej = new System.Windows.Forms.Button();
+            this.dgwtest = new System.Windows.Forms.DataGridView();
             this.tcZival.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -118,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwPosTelitve)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwPosLaktacije)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwtest)).BeginInit();
             this.SuspendLayout();
             // 
             // tcZival
@@ -163,7 +167,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 262F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel4.Controls.Add(this.textBox4, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label20, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label21, 2, 0);
@@ -186,7 +190,7 @@
             this.textBox4.Location = new System.Drawing.Point(5, 40);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(488, 71);
+            this.textBox4.Size = new System.Drawing.Size(480, 71);
             this.textBox4.TabIndex = 5;
             this.textBox4.Text = "Tekst in opis obombe ki se je izvedla na kravi";
             // 
@@ -199,7 +203,7 @@
             this.label20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label20.Location = new System.Drawing.Point(5, 2);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(240, 33);
+            this.label20.Size = new System.Drawing.Size(236, 33);
             this.label20.TabIndex = 1;
             this.label20.Text = "Ime opombe";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,9 +215,9 @@
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label21.Location = new System.Drawing.Point(501, 2);
+            this.label21.Location = new System.Drawing.Point(493, 2);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(256, 33);
+            this.label21.Size = new System.Drawing.Size(264, 33);
             this.label21.TabIndex = 7;
             this.label21.Text = "Zaključeno";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,9 +228,9 @@
             this.label22.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label22.Location = new System.Drawing.Point(253, 2);
+            this.label22.Location = new System.Drawing.Point(249, 2);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(240, 33);
+            this.label22.Size = new System.Drawing.Size(236, 33);
             this.label22.TabIndex = 8;
             this.label22.Text = "22.11.2016";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -237,9 +241,9 @@
             this.panel4.Controls.Add(this.button7);
             this.panel4.Controls.Add(this.button8);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(501, 40);
+            this.panel4.Location = new System.Drawing.Point(493, 40);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(256, 71);
+            this.panel4.Size = new System.Drawing.Size(264, 71);
             this.panel4.TabIndex = 9;
             // 
             // button7
@@ -268,7 +272,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 262F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel3.Controls.Add(this.textBox3, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label17, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label18, 2, 0);
@@ -291,7 +295,7 @@
             this.textBox3.Location = new System.Drawing.Point(5, 40);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(488, 71);
+            this.textBox3.Size = new System.Drawing.Size(480, 71);
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "Tekst in opis obombe ki se je izvedla na kravi";
             // 
@@ -304,7 +308,7 @@
             this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label17.Location = new System.Drawing.Point(5, 2);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(240, 33);
+            this.label17.Size = new System.Drawing.Size(236, 33);
             this.label17.TabIndex = 1;
             this.label17.Text = "Ime opombe";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -316,9 +320,9 @@
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label18.ForeColor = System.Drawing.Color.Gold;
-            this.label18.Location = new System.Drawing.Point(501, 2);
+            this.label18.Location = new System.Drawing.Point(493, 2);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(256, 33);
+            this.label18.Size = new System.Drawing.Size(264, 33);
             this.label18.TabIndex = 7;
             this.label18.Text = "V obdelavi";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -329,9 +333,9 @@
             this.label19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.Location = new System.Drawing.Point(253, 2);
+            this.label19.Location = new System.Drawing.Point(249, 2);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(240, 33);
+            this.label19.Size = new System.Drawing.Size(236, 33);
             this.label19.TabIndex = 8;
             this.label19.Text = "22.11.2016";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -342,9 +346,9 @@
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(501, 40);
+            this.panel3.Location = new System.Drawing.Point(493, 40);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(256, 71);
+            this.panel3.Size = new System.Drawing.Size(264, 71);
             this.panel3.TabIndex = 9;
             // 
             // button5
@@ -373,7 +377,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 262F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label15, 2, 0);
@@ -396,7 +400,7 @@
             this.textBox2.Location = new System.Drawing.Point(5, 40);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(488, 71);
+            this.textBox2.Size = new System.Drawing.Size(480, 71);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "Tekst in opis obombe ki se je izvedla na kravi";
             // 
@@ -409,7 +413,7 @@
             this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label14.Location = new System.Drawing.Point(5, 2);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(240, 33);
+            this.label14.Size = new System.Drawing.Size(236, 33);
             this.label14.TabIndex = 1;
             this.label14.Text = "Ime opombe";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -421,9 +425,9 @@
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(501, 2);
+            this.label15.Location = new System.Drawing.Point(493, 2);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(256, 33);
+            this.label15.Size = new System.Drawing.Size(264, 33);
             this.label15.TabIndex = 7;
             this.label15.Text = "Odprto";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -434,9 +438,9 @@
             this.label16.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label16.Location = new System.Drawing.Point(253, 2);
+            this.label16.Location = new System.Drawing.Point(249, 2);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(240, 33);
+            this.label16.Size = new System.Drawing.Size(236, 33);
             this.label16.TabIndex = 8;
             this.label16.Text = "22.11.2016";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -447,9 +451,9 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(501, 40);
+            this.panel2.Location = new System.Drawing.Point(493, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(256, 71);
+            this.panel2.Size = new System.Drawing.Size(264, 71);
             this.panel2.TabIndex = 9;
             // 
             // button1
@@ -478,7 +482,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 262F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label13, 2, 0);
@@ -501,7 +505,7 @@
             this.textBox1.Location = new System.Drawing.Point(5, 40);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(488, 71);
+            this.textBox1.Size = new System.Drawing.Size(480, 71);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Tekst in opis obombe ki se je izvedla na kravi";
             // 
@@ -514,7 +518,7 @@
             this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label11.Location = new System.Drawing.Point(5, 2);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(240, 33);
+            this.label11.Size = new System.Drawing.Size(236, 33);
             this.label11.TabIndex = 1;
             this.label11.Text = "Ime opombe";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -526,9 +530,9 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(501, 2);
+            this.label13.Location = new System.Drawing.Point(493, 2);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(256, 33);
+            this.label13.Size = new System.Drawing.Size(264, 33);
             this.label13.TabIndex = 7;
             this.label13.Text = "Odprto";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -539,9 +543,9 @@
             this.label12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(253, 2);
+            this.label12.Location = new System.Drawing.Point(249, 2);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(240, 33);
+            this.label12.Size = new System.Drawing.Size(236, 33);
             this.label12.TabIndex = 8;
             this.label12.Text = "22.11.2016";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -552,9 +556,9 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(501, 40);
+            this.panel1.Location = new System.Drawing.Point(493, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(256, 71);
+            this.panel1.Size = new System.Drawing.Size(264, 71);
             this.panel1.TabIndex = 9;
             // 
             // button3
@@ -698,33 +702,33 @@
             // 
             // dgwPosOpombe
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgwPosOpombe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgwPosOpombe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgwPosOpombe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgwPosOpombe.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgwPosOpombe.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgwPosOpombe.Location = new System.Drawing.Point(10, 4);
             this.dgwPosOpombe.Name = "dgwPosOpombe";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgwPosOpombe.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgwPosOpombe.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgwPosOpombe.Size = new System.Drawing.Size(825, 150);
             this.dgwPosOpombe.TabIndex = 17;
             this.dgwPosOpombe.Visible = false;
@@ -931,11 +935,43 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "S povprečno vsebnostjo";
             // 
+            // btnNazaj
+            // 
+            this.btnNazaj.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnNazaj.Image = global::Kmetovanje.Properties.Resources.backwardArrow1;
+            this.btnNazaj.Location = new System.Drawing.Point(646, 21);
+            this.btnNazaj.Name = "btnNazaj";
+            this.btnNazaj.Size = new System.Drawing.Size(66, 59);
+            this.btnNazaj.TabIndex = 21;
+            this.btnNazaj.UseVisualStyleBackColor = false;
+            // 
+            // btnNaprej
+            // 
+            this.btnNaprej.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnNaprej.Image = global::Kmetovanje.Properties.Resources.forwardArrow;
+            this.btnNaprej.Location = new System.Drawing.Point(718, 21);
+            this.btnNaprej.Name = "btnNaprej";
+            this.btnNaprej.Size = new System.Drawing.Size(70, 59);
+            this.btnNaprej.TabIndex = 20;
+            this.btnNaprej.UseVisualStyleBackColor = false;
+            // 
+            // dgwtest
+            // 
+            this.dgwtest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwtest.Location = new System.Drawing.Point(1149, 508);
+            this.dgwtest.Name = "dgwtest";
+            this.dgwtest.Size = new System.Drawing.Size(103, 61);
+            this.dgwtest.TabIndex = 22;
+            this.dgwtest.Visible = false;
+            // 
             // ZivalPosamezno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 581);
+            this.Controls.Add(this.dgwtest);
+            this.Controls.Add(this.btnNazaj);
+            this.Controls.Add(this.btnNaprej);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpPosRojstvoZiv);
             this.Controls.Add(this.label10);
@@ -983,6 +1019,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwPosTelitve)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwPosLaktacije)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwtest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1059,5 +1096,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dgwPosOpombe;
+        private System.Windows.Forms.Button btnNaprej;
+        private System.Windows.Forms.Button btnNazaj;
+        private System.Windows.Forms.DataGridView dgwtest;
     }
 }

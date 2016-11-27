@@ -12,6 +12,8 @@ namespace Kmetovanje
 {
     public partial class ZivalPosamezno : Form
     {
+       
+
         public ZivalPosamezno()
         {
             InitializeComponent();
@@ -53,27 +55,42 @@ namespace Kmetovanje
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }//EVENT ZA LEVO PORAVNAVO TABOV
 
-
+        
 
         SQLFunkcije posamezno = new SQLFunkcije();
         private void ZivalPosamezno_Load(object sender, EventArgs e)
         {
+
             posamezno.Metoda_branje();
             dgwPosOpombe.DataSource = posamezno.SQLSelect("SELECT dbo.Zivali.ImeZiv, dbo.Opombe.Opis_Opombe, dbo.Opombe.Datum_Opombe, dbo.Opombe.Stanje, dbo.ImeOpombe.Ime_Opombe AS [Ime opombe]" +
                                 " FROM dbo.Zivali INNER JOIN dbo.Opombe ON dbo.Zivali.IdZiv_S = dbo.Opombe.IdZiv_S INNER JOIN dbo.ImeOpombe ON dbo.Opombe.Ime_Opombe = dbo.ImeOpombe.Id_ImeOpombe " +
-                                " WHERE (dbo.Zivali.IdZivOrig = '33881665')");
+                                " WHERE (dbo.Zivali.IdZivOrig = '"+ Hlev.origst +"')");
+            dgwPosOpombe.Columns[0].Visible = false;
+            dgwtest.DataSource = posamezno.SQLSelect("SELECT a.IdZivOrig AS [Ušesna št], a.ImeZiv AS [Ime živali], a.DatRoj AS [Rojena], b.Ime AS [Oče],c.imeziv AS [Mati] FROM Zivali a LEFT JOIN Biki b ON a.IdOceS=b.IdZiv_S LEFT JOIN Zivali c ON a.IdMatS=c.IdZiv_S WHERE (a.IdZivOrig ='" + Hlev.origst + "')");
+            tbPosImeZiv.Text = dgwtest.Rows[0].Cells[1].Value.ToString();
+            tbPosUsesStevZiv.Text= dgwtest.Rows[0].Cells[0].Value.ToString();
+            DateTime roj;
+            DateTime.TryParse(dgwtest.Rows[0].Cells[2].Value.ToString(), out roj);
+            dtpPosRojstvoZiv.Value = roj;
+            tbPosMati.Text = dgwtest.Rows[0].Cells[4].Value.ToString();
+            tbPosOce.Text = dgwtest.Rows[0].Cells[3].Value.ToString();
+            //a bi ti to znou kej drugač rešit???
+
         }
 
         private void tcZival_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcZival.SelectedIndex == 2)
             {
-                dgwPosTelitve.DataSource= posamezno.SQLSelect("SELECT IdZivOrig, ImeZiv, DatRoj, Spol FROM dbo.Zivali WHERE (IdMat = 'SVN    33881665')");
+                dgwPosTelitve.DataSource = posamezno.SQLSelect("SELECT IdZivOrig, ImeZiv, DatRoj, Spol FROM dbo.Zivali WHERE (IdMat = 'SVN    " + Hlev.origst + "')");
             }
-            else if (tcZival.SelectedIndex==1)
+            else if (tcZival.SelectedIndex == 1)
             {
-                dgwPosKontrole.DataSource= posamezno.SQLSelect("SELECT dbo.Kontrola.dattel, dbo.Kontrola.datkon, dbo.Kontrola.y161, dbo.Kontrola.y162a, dbo.Kontrola.y163, dbo.Kontrola.y164, dbo.Kontrola.y166, dbo.Kontrola.y167 "+
-                                    " FROM dbo.Kontrola INNER JOIN dbo.Zivali ON dbo.Kontrola.idZiv_S = dbo.Zivali.IdZiv_S WHERE (dbo.Zivali.IdZivOrig = '33881665' AND idlak='1')");
+                dgwPosKontrole.DataSource = posamezno.SQLSelect("SELECT datkon, y161, y163, y164, y165, y166, y168, y167, idlak FROM dbo.Kontrola WHERE (idZiv_S ='"+Hlev.sekvenca+"')");
+            }
+            else if (tcZival.SelectedIndex == 3)
+            {
+                dgwPosLaktacije.DataSource= posamezno.SQLSelect("SELECT TOP (100) PERCENT ImeZiv, roj, idlak, mdn, last064, last066, last067, last264, last266, last267 FROM dbo.Laktacije WHERE (idzivorig = '" + Hlev.origst + "') ORDER BY idlak");
             }
         }
 

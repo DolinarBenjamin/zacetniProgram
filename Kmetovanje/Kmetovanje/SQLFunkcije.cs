@@ -15,7 +15,7 @@ namespace Kmetovanje
     class SQLFunkcije
     {
         public string Baza_povezava;
-
+        
         public void Metoda_branje()
         {
             try
@@ -36,7 +36,27 @@ namespace Kmetovanje
             }
             catch (Exception ex) { MessageBox.Show("Prišlo je do napake pri povezavi z bazo\n" + ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
-
+        public string Podatek(string newName)
+        {
+            string newProdID = "0";
+            string sql ="SELECT ImeZiv FROM Zivali WHERE (IdZivOrig ='" + Hlev.origst + "')";
+            using (SqlConnection conn = new SqlConnection(Baza_povezava))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@Name", SqlDbType.VarChar);
+                cmd.Parameters["@name"].Value = newName;
+                try
+                {
+                    conn.Open();
+                    newProdID = cmd.ExecuteScalar().ToString();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return newProdID;
+        }
         public DataTable SQLSelect(string stavek)
         {
             DataTable tabela = new DataTable();
@@ -95,15 +115,14 @@ namespace Kmetovanje
             povezava.Open();
             foreach (DataRow dr in tabela.Rows)
             {
-                int id;
-                int.TryParse(dr["Id_Kont"].ToString(), out id);
-                int sekvenca;
-                int.TryParse(dr["IdZiv_S"].ToString(), out sekvenca);
-                DateTime datumkont;
                 if (dr["datkon"].ToString() != null)
                 {
+                    DateTime datumkont;
                     DateTime.TryParse(dr["datkon"].ToString(), out datumkont);
-
+                    int id;
+                    int.TryParse(dr["Id_Kont"].ToString(), out id);
+                    int sekvenca;
+                    int.TryParse(dr["IdZiv_S"].ToString(), out sekvenca);
                     SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Kontrola WHERE Id_Kont = " + id + " AND datkon=" + datumkont + " AND IdZiv_S=" + sekvenca + ")"
                     + "UPDATE Kontrola SET IdZiv_S=@idZiv_S,ImeZiv=@ImeZiv,roj=@roj,idlak=@idlak,dattel=@dattel,datkon=@datkon,y161=@y161,y162a=@y162a,y163=@y163,y164=@y164,y165=@y165,y166=@y166,y167=@y167,y168=@y168 WHERE Id_Kont = " + id 
                     + " ELSE "

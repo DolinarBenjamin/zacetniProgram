@@ -59,9 +59,13 @@ namespace Kmetovanje
         {
             tbIzbranaZival.Text = dgwAktivneZiv.CurrentRow.Cells[2].Value.ToString();
         }
-
+        public static string origst { get; set; }
+        public static string sekvenca { get; set; }
+        public static int IdZivali { get; set; }
         private void btnPodrobnostiAktZiv_Click(object sender, EventArgs e)
         {
+            sekvenca= dgwAktivneZiv.CurrentRow.Cells[0].Value.ToString();
+            origst = dgwAktivneZiv.CurrentRow.Cells[1].Value.ToString();
             ZivalPosamezno zival = new ZivalPosamezno();
             zival.ShowDialog();
         }
