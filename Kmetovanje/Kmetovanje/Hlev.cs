@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Kmetovanje
 {
@@ -105,7 +106,6 @@ namespace Kmetovanje
             }
         }
         
-
         private void dgwOsemenitve_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (cbOsemPreg.SelectedItem != null)
@@ -118,6 +118,49 @@ namespace Kmetovanje
                 {
                     tbIzbranaZivOsemPreg.Text = dgwOsemenitve.CurrentRow.Cells[2].Value.ToString();
                 }
+            }
+        }
+       
+        private void btnDodajOsemPreg_Click(object sender, EventArgs e)
+        {
+            SqlConnection povezava = new SqlConnection(test.Baza_povezava);
+            if (cbOsemPreg.SelectedItem.ToString() == "Osemenitev")
+            {
+                povezava.Open();
+                SqlCommand cm= new SqlCommand("INSERT INTO Osemenitve ([IdZivOrig], [St_Osemenitve], [Datum_Osemenitve], [Datum_Pregleda], [Uspeh_Pregleda], [Datum_Telitve], [Id_Bika]) " +
+                                                               "VALUES ( @IdZivOrig, @StOsemenitve, @DatOsem, @DatPreg, @Uspeh, @DatTel, @Bik)", povezava);
+                int i = 1;
+                cm.Parameters.AddWithValue("@IdZivOrig", dgwOsemenitve.CurrentRow.Cells[0].Value.ToString());
+                cm.Parameters.AddWithValue("@StOsemenitve", i.ToString());
+                string usp = "Osemenjena";
+                cm.Parameters.AddWithValue("@DatOsem",dtpDatumOsemPreg.Value.ToString("yyyy-MM-dd"));
+                cm.Parameters.AddWithValue("@DatPreg", dtpPredvidenPregTel.Value.ToString("yyyy-MM-dd"));
+                cm.Parameters.AddWithValue("@Uspeh", usp);
+                cm.Parameters.AddWithValue("@DatTel", DBNull.Value);
+                cm.Parameters.AddWithValue("@Bik", cbBik.SelectedIndex.ToString());
+                cm.ExecuteNonQuery();
+                povezava.Close();
+            }
+            else if(cbOsemPreg.SelectedItem.ToString()=="Pregled")
+            {
+                povezava.Open();
+                SqlCommand cm = new SqlCommand("UPDATE Osemenitve SET [Datum_Pregleda]= @DatPreg, [Uspeh_Pregleda]= @Uspeh, [Datum_Telitve]=@DatTel WHERE Osemenitve.Id_Osemenitve=" + dgwOsemenitve.CurrentRow.Cells[0].Value.ToString(), povezava);
+                cm.Parameters.AddWithValue("@DatPreg", dtpDatumOsemPreg.Value.ToString("yyyyy-MM-dd"));
+                if (chebOsemPregon.Checked == true)
+                {
+                    string usp = "Breja";
+                    cm.Parameters.AddWithValue("@DatTel", dtpPredvidenPregTel.Value.ToString("yyyy-MM-dd"));
+                    cm.Parameters.AddWithValue("@Uspeh", usp);
+                }
+                else
+                {
+                    string usp = "Pregon";
+                    cm.Parameters.AddWithValue("@DatTel", DBNull.Value);
+                    cm.Parameters.AddWithValue("@Useph", usp);
+                }
+                cm.ExecuteNonQuery();
+                povezava.Close();
+
             }
         }
         #endregion
