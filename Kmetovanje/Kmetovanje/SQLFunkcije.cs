@@ -351,18 +351,18 @@ namespace Kmetovanje
             foreach (DataRow dr in tabela.Rows)
             {
                 int id;
-                int.TryParse(dr["IdZiv_S"].ToString(), out id);
-                SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Zivali WHERE IdZiv_S = " + id + ")"
+                int.TryParse(dr["IdZivS"].ToString(), out id);
+                SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Zivali WHERE IdZivS = " + id + ")"
                     + "UPDATE Zivali SET IdZivOrig=@IdZivOrig,ImeZiv=@ImeZiv,DatRoj=@DatRoj,Spol=@Spol,IdMatS=@IdMatS,IdOceS=@IdOceS,datizl=@datizl,izloc=@izloc,IdOce=@IdOce,IdMat=@IdMat,"
-                    + "IdPas=@IdPas,VzrokIzl=@VzrokIzl WHERE IdZiv_S = " + id
+                    + "IdPas=@IdPas,VzrokIzl=@VzrokIzl WHERE IdZivS = " + id
                     + " ELSE "
-                    + "INSERT INTO Zivali(IdZiv_S,IdZivOrig,ImeZiv,DatRoj,Spol,IdMatS,IdOceS,datizl,izloc,IdOce,IdMat,IdPas,VzrokIzl )"
-                    + " VALUES( @IdZiv_S,@IdZivOrig,@ImeZiv,@DatRoj,@Spol,@IdMatS,@IdOceS,@datizl,@izloc,@IdOce,@IdMat,@IdPas,@VzrokIzl)", povezava);
+                    + "INSERT INTO Zivali(IdZivS,IdZivOrig,ImeZiv,DatRoj,Spol,IdMatS,IdOceS,datizl,izloc,IdOce,IdMat,IdPas,VzrokIzl )"
+                    + " VALUES( @IdZivS,@IdZivOrig,@ImeZiv,@DatRoj,@Spol,@IdMatS,@IdOceS,@datizl,@izloc,@IdOce,@IdMat,@IdPas,@VzrokIzl)", povezava);
                 int zivsek;
-                if (int.TryParse(dr["IdZiv_S"].ToString(), out zivsek))
-                    cm.Parameters.AddWithValue("@IdZiv_S", zivsek);
+                if (int.TryParse(dr["IdZivS"].ToString(), out zivsek))
+                    cm.Parameters.AddWithValue("@IdZivS", zivsek);
                 else
-                    cm.Parameters.AddWithValue("IdZiv_S", DBNull.Value);
+                    cm.Parameters.AddWithValue("IdZivS", DBNull.Value);
                 int usesna;
                 if (int.TryParse(dr["IdZivOrig"].ToString(), out usesna))
                     cm.Parameters.AddWithValue("@IdZivOrig", usesna);

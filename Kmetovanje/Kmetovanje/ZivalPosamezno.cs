@@ -112,17 +112,13 @@ namespace Kmetovanje
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             if(radioButton4.Checked==true)
             { 
             tableLayoutPanel1.Controls.Clear();
-            DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Končana' AND IdZivS=" + tbPosUsesStevZiv.Text);
+            DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Končana' AND IdZiv_S=" + Hlev.sekvenca);
 
                 foreach (DataRow dr in tabela.Rows)
                 {
@@ -138,7 +134,7 @@ namespace Kmetovanje
             if (radioButton2.Checked == true)
             {
                 tableLayoutPanel1.Controls.Clear();
-                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Odprta' AND IdZivS=" + tbPosUsesStevZiv.Text);
+                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Odprta' AND IdZiv_S=" + Hlev.sekvenca);
 
                 foreach (DataRow dr in tabela.Rows)
                 {
@@ -154,7 +150,7 @@ namespace Kmetovanje
             if (radioButton1.Checked == true)
             {
                 tableLayoutPanel1.Controls.Clear();
-                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE IdZivS=" + tbPosUsesStevZiv.Text);
+                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE IdZiv_S=" + Hlev.sekvenca);
                 foreach (DataRow dr in tabela.Rows)
                 {
                     tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
@@ -162,6 +158,12 @@ namespace Kmetovanje
                     tableLayoutPanel1.Controls.Add(opomba);
                 }
             }
+        }
+
+        private void btnNazaj_Click(object sender, EventArgs e)
+        {
+            int id = Hlev.IdZivali;
+            id = id - 1;
         }
     }
 }
