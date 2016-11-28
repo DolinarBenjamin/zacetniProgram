@@ -103,6 +103,26 @@ namespace Kmetovanje.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Naprej {
+            get {
+                object obj = ResourceManager.GetObject("Naprej", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Nazaj {
+            get {
+                object obj = ResourceManager.GetObject("Nazaj", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap podatki {
             get {
                 object obj = ResourceManager.GetObject("podatki", resourceCulture);

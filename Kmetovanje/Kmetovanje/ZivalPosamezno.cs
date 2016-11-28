@@ -112,17 +112,13 @@ namespace Kmetovanje
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             if(radioButton4.Checked==true)
             { 
             tableLayoutPanel1.Controls.Clear();
-            DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Končana' AND IdZivS=" + tbPosUsesStevZiv.Text);
+            DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Končana' AND IdZiv_S=" + Hlev.sekvenca);
 
                 foreach (DataRow dr in tabela.Rows)
                 {
@@ -138,7 +134,7 @@ namespace Kmetovanje
             if (radioButton2.Checked == true)
             {
                 tableLayoutPanel1.Controls.Clear();
-                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Odprta' AND IdZivS=" + tbPosUsesStevZiv.Text);
+                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE Stanje='Odprta' AND IdZiv_S=" + Hlev.sekvenca);
 
                 foreach (DataRow dr in tabela.Rows)
                 {
@@ -154,7 +150,49 @@ namespace Kmetovanje
             if (radioButton1.Checked == true)
             {
                 tableLayoutPanel1.Controls.Clear();
-                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE IdZivS=" + tbPosUsesStevZiv.Text);
+                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE IdZiv_S=" + Hlev.sekvenca);
+                foreach (DataRow dr in tabela.Rows)
+                {
+                    tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
+                    OpombeUS opomba = new OpombeUS(dr[0].ToString());
+                    tableLayoutPanel1.Controls.Add(opomba);
+                }
+            }
+        }
+
+        private void btnNazaj_Click(object sender, EventArgs e)
+        {
+            int id = Hlev.IdZivali;
+            id = id - 1;
+            DataTable dt = posamezno.SQLSelect("SELECT a.IdZivOrig AS [Ušesna št], a.ImeZiv AS [Ime živali], a.DatRoj AS [Rojena], b.Ime AS [Oče],c.imeziv AS [Mati], a.IdZiv_S FROM Zivali a LEFT JOIN Biki b ON a.IdOceS=b.IdZiv_S LEFT JOIN Zivali c ON a.IdMatS=c.IdZiv_S WHERE (a.Id_Zivali ='" + id + "')");
+            tbPosImeZiv.Text = dt.Rows[0][1].ToString();
+            tbPosUsesStevZiv.Text = dt.Rows[0][0].ToString();
+            DateTime roj;
+            DateTime.TryParse(dt.Rows[0][2].ToString(), out roj);
+            dtpPosRojstvoZiv.Value = roj;
+            tbPosMati.Text = dt.Rows[0][4].ToString();
+            tbPosOce.Text = dt.Rows[0][3].ToString();
+            int sekvenca =Convert.ToInt32( dt.Rows[0][5].ToString());
+            if (tcZival.SelectedIndex == 2)
+            {
+                dgwPosTelitve.DataSource = posamezno.SQLSelect("SELECT IdZivOrig, ImeZiv, DatRoj, Spol FROM dbo.Zivali WHERE (Id_Zivali = '" + id + "')");
+            }
+            else if (tcZival.SelectedIndex == 1)
+            {
+                dgwPosKontrole.DataSource = posamezno.SQLSelect("SELECT datkon, y161, y163, y164, y165, y166, y168, y167, idlak FROM dbo.Kontrola WHERE (idZiv_S ='" +sekvenca + "')");
+            }
+            else if (tcZival.SelectedIndex == 3)
+            {
+                dgwPosLaktacije.DataSource = posamezno.SQLSelect("SELECT  idlak, mdn, last064, last066, last067, last264, last266, last267 FROM dbo.Laktacije WHERE (IdZivOrig = '" + tbPosUsesStevZiv.Text + "') ORDER BY idlak");
+                DataTable lak = posamezno.SQLSelect("SELECT SUM(last264) AS [Življenjska prireja], SUM(last265) AS [Kg Maščobe], SUM(last268) AS [Kg Beljakovine], MAX(idlak) AS Laktacij, SUM(last266) / MAX(idlak) AS [Povprečno maščobo], SUM(last267) / MAX(idlak) AS [Povprečno Beljakovino] FROM dbo.Laktacije WHERE (idzivorig = '" + Hlev.origst + "')");
+                tbPosLitrov.Text = lak.Rows[0][0].ToString();
+                tbPosMascobe.Text = lak.Rows[0][4].ToString();
+                tbPosBeljakovin.Text = lak.Rows[0][5].ToString();
+            }
+            else if (tcZival.SelectedIndex == 0)
+            {
+                tableLayoutPanel1.Controls.Clear();
+                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE IdZiv_S=" + sekvenca);
                 foreach (DataRow dr in tabela.Rows)
                 {
                     tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
