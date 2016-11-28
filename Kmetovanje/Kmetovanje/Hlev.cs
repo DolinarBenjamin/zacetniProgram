@@ -33,6 +33,7 @@ namespace Kmetovanje
             cbBik.DisplayMember = "Value";
             cbBik.ValueMember = "Key";
             cbBik.SelectedIndex = -1;
+            dgwAktivneZiv.ClearSelection();
         }
 
         private void tcHlev_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,10 +70,13 @@ namespace Kmetovanje
         public static int IdZivali { get; set; }
         private void btnPodrobnostiAktZiv_Click(object sender, EventArgs e)
         {
-            sekvenca= dgwAktivneZiv.CurrentRow.Cells[0].Value.ToString();
-            origst = dgwAktivneZiv.CurrentRow.Cells[1].Value.ToString();
-            ZivalPosamezno zival = new ZivalPosamezno();
-            zival.ShowDialog();
+            if (dgwAktivneZiv.CurrentCell != null)
+            {
+                sekvenca = dgwAktivneZiv.CurrentRow.Cells[0].Value.ToString();
+                origst = dgwAktivneZiv.CurrentRow.Cells[1].Value.ToString();
+                ZivalPosamezno zival = new ZivalPosamezno();
+                zival.ShowDialog();
+            }
         }
         #region Osemenitve
         private void dtpDatumOsemPreg_ValueChanged(object sender, EventArgs e)
@@ -164,5 +168,10 @@ namespace Kmetovanje
             }
         }
         #endregion
+
+        private void btnDodajOpombo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

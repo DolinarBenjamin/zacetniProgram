@@ -58,6 +58,10 @@
             this.lblOsemPreg = new System.Windows.Forms.Label();
             this.dgwOsemenitve = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgwPredvideneTelitve = new System.Windows.Forms.DataGridView();
+            this.dgwPreglediBrejosti = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnPodrobnostiZivKont = new System.Windows.Forms.Button();
             this.btnPrikaziKontrole = new System.Windows.Forms.Button();
@@ -70,10 +74,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dgwVseZivali = new System.Windows.Forms.DataGridView();
-            this.dgwPreglediBrejosti = new System.Windows.Forms.DataGridView();
-            this.dgwPredvideneTelitve = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.tcHlev.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAktivneZiv)).BeginInit();
@@ -81,12 +81,12 @@
             this.gbOsemPreg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).BeginInit();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPredvideneTelitve)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPreglediBrejosti)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwVseZivali)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwPreglediBrejosti)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwPredvideneTelitve)).BeginInit();
             this.SuspendLayout();
             // 
             // tcHlev
@@ -143,6 +143,7 @@
             this.btnDodajOpombo.TabIndex = 9;
             this.btnDodajOpombo.Text = "Dodaj opombo";
             this.btnDodajOpombo.UseVisualStyleBackColor = true;
+            this.btnDodajOpombo.Click += new System.EventHandler(this.btnDodajOpombo_Click);
             // 
             // dtpDatumOpombe
             // 
@@ -397,6 +398,42 @@
             this.tabPage6.Text = "Pregled Osemenitev";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(826, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(184, 25);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Predvidene telitve";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(115, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(273, 25);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Predvideni pregledi brejosti";
+            // 
+            // dgwPredvideneTelitve
+            // 
+            this.dgwPredvideneTelitve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwPredvideneTelitve.Location = new System.Drawing.Point(641, 67);
+            this.dgwPredvideneTelitve.Name = "dgwPredvideneTelitve";
+            this.dgwPredvideneTelitve.Size = new System.Drawing.Size(580, 441);
+            this.dgwPredvideneTelitve.TabIndex = 1;
+            // 
+            // dgwPreglediBrejosti
+            // 
+            this.dgwPreglediBrejosti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwPreglediBrejosti.Location = new System.Drawing.Point(15, 67);
+            this.dgwPreglediBrejosti.Name = "dgwPreglediBrejosti";
+            this.dgwPreglediBrejosti.Size = new System.Drawing.Size(580, 441);
+            this.dgwPreglediBrejosti.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnPodrobnostiZivKont);
@@ -511,42 +548,6 @@
             this.dgwVseZivali.Size = new System.Drawing.Size(1150, 490);
             this.dgwVseZivali.TabIndex = 0;
             // 
-            // dgwPreglediBrejosti
-            // 
-            this.dgwPreglediBrejosti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwPreglediBrejosti.Location = new System.Drawing.Point(15, 67);
-            this.dgwPreglediBrejosti.Name = "dgwPreglediBrejosti";
-            this.dgwPreglediBrejosti.Size = new System.Drawing.Size(580, 441);
-            this.dgwPreglediBrejosti.TabIndex = 0;
-            // 
-            // dgwPredvideneTelitve
-            // 
-            this.dgwPredvideneTelitve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwPredvideneTelitve.Location = new System.Drawing.Point(641, 67);
-            this.dgwPredvideneTelitve.Name = "dgwPredvideneTelitve";
-            this.dgwPredvideneTelitve.Size = new System.Drawing.Size(580, 441);
-            this.dgwPredvideneTelitve.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(115, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(273, 25);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Predvideni pregledi brejosti";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(826, 19);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(184, 25);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Predvidene telitve";
-            // 
             // Hlev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -570,13 +571,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwOsemenitve)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPredvideneTelitve)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPreglediBrejosti)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKontrole)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwVseZivali)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwPreglediBrejosti)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwPredvideneTelitve)).EndInit();
             this.ResumeLayout(false);
 
         }

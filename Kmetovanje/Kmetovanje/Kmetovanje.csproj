@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Excel.4.5">
       <HintPath>..\..\..\..\..\Downloads\output\output\net45\Excel.4.5.dll</HintPath>
     </Reference>
@@ -50,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OpombeUS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OpombeUS.Designer.cs">
+      <DependentUpon>OpombeUS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Opravila.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +99,9 @@
     <Compile Include="ZivalPosamezno.Designer.cs">
       <DependentUpon>ZivalPosamezno.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="OpombeUS.resx">
+      <DependentUpon>OpombeUS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Opravila.resx">
       <DependentUpon>Opravila.cs</DependentUpon>
     </EmbeddedResource>
