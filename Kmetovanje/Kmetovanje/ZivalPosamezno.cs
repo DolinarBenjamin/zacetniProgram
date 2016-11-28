@@ -162,8 +162,14 @@ namespace Kmetovanje
 
         private void btnNazaj_Click(object sender, EventArgs e)
         {
-            int id = Hlev.IdZivali;
-            id = id - 1;
+            Hlev.nazaj = true;
+            this.Close();
+        }
+
+        private void btnNaprej_Click(object sender, EventArgs e)
+        {
+            Hlev.naprej = true;
+            this.Close();
         }
     }
 }

@@ -73,14 +73,35 @@ namespace Kmetovanje
         public static string origst { get; set; }
         public static string sekvenca { get; set; }
         public static int IdZivali { get; set; }
+        public static bool naprej { get; set; }
+        public static bool nazaj { get; set; }
         private void btnPodrobnostiAktZiv_Click(object sender, EventArgs e)
         {
             if (dgwAktivneZiv.CurrentCell != null)
             {
+                naprej = false;
+                nazaj = false;
                 sekvenca = dgwAktivneZiv.CurrentRow.Cells[0].Value.ToString();
                 origst = dgwAktivneZiv.CurrentRow.Cells[1].Value.ToString();
                 ZivalPosamezno zival = new ZivalPosamezno();
                 zival.ShowDialog();
+                if (naprej == true)
+                {
+                    if (dgwAktivneZiv.CurrentCell.RowIndex + 1 < dgwAktivneZiv.Rows.Count)
+                    {
+                        dgwAktivneZiv.CurrentCell = dgwAktivneZiv.Rows[dgwAktivneZiv.CurrentCell.RowIndex + 1].Cells[1];
+                        btnPodrobnostiAktZiv_Click(this, EventArgs.Empty);
+                    }
+                }
+                else if (nazaj == true)
+                {
+                    if (dgwAktivneZiv.CurrentCell.RowIndex -1>=0)
+                    {
+                        dgwAktivneZiv.CurrentCell = dgwAktivneZiv.Rows[dgwAktivneZiv.CurrentCell.RowIndex - 1].Cells[1];
+                        btnPodrobnostiAktZiv_Click(this, EventArgs.Empty);
+                    }
+                }
+                
             }
         }
         #region Osemenitve
