@@ -33,7 +33,12 @@ namespace Kmetovanje
             cbBik.DisplayMember = "Value";
             cbBik.ValueMember = "Key";
             cbBik.SelectedIndex = -1;
+            cbImeOpombe.DataSource = new BindingSource(test.NapolniComboImeOpombe(),null);
+            cbImeOpombe.DisplayMember = "Value";
+            cbImeOpombe.ValueMember = "Key";
+            cbImeOpombe.SelectedIndex = -1;
             dgwAktivneZiv.ClearSelection();
+
         }
 
         private void tcHlev_SelectedIndexChanged(object sender, EventArgs e)
@@ -171,6 +176,31 @@ namespace Kmetovanje
 
         private void btnDodajOpombo_Click(object sender, EventArgs e)
         {
+            SqlConnection povezava = new SqlConnection(test.Baza_povezava);
+            povezava.Open();
+            SqlCommand cm = new SqlCommand("INSERT INTO Opombe ([IdZiv_S], [Ime_Opombe], [Opis_Opombe], [Datum_Opombe], [Stanje]) " +
+                                                          "VALUES ( @Idzivs, @imeOpombe, @opis, @Datum, @Stanje)", povezava);
+            cm.Parameters.AddWithValue("@Idzivs", dgwAktivneZiv.CurrentRow.Cells[0].Value.ToString());
+            cm.Parameters.AddWithValue("@imeOpombe", cbImeOpombe.SelectedValue.ToString());
+            cm.Parameters.AddWithValue("@opis", tbOpisOpombe.Text.ToString());
+            cm.Parameters.AddWithValue("@Datum", dtpDatumOpombe.Value.ToString("yyyy-MM-dd"));
+            if (chebOsemPregon.Checked == true)
+            {
+                string stanje = "Končana";
+                cm.Parameters.AddWithValue("@Stanje", stanje);
+            }
+            else
+            {
+                string stanje = "Odprta";
+                cm.Parameters.AddWithValue("@Stanje", stanje);
+            }
+            cm.ExecuteNonQuery();
+            povezava.Close();
+            cbImeOpombe.SelectedIndex = -1;
+            dtpDatumOpombe.Value = DateTime.Now.Date;
+            tbOpisOpombe.Clear();
+            tbIzbranaZival.Clear();
+            tbIzbranaZival.Focus();
 
         }
     }

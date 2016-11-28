@@ -102,7 +102,7 @@ namespace Kmetovanje
             else if(tcZival.SelectedIndex==0)
             {
                 tableLayoutPanel1.Controls.Clear();
-                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE IdZivS=" + tbPosUsesStevZiv.Text);
+                DataTable tabela = posamezno.SQLSelect("SELECT * FROM Opombe WHERE IdZiv_S=" + Hlev.sekvenca);
                 foreach(DataRow dr in tabela.Rows)
                 {
                     tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;

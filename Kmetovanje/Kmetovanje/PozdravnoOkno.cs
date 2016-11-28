@@ -16,12 +16,6 @@ namespace Kmetovanje
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Baje da dela?", "Opozorilo", MessageBoxButtons.OK);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Hlev nov = new Hlev();

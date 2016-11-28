@@ -90,6 +90,25 @@ namespace Kmetovanje
             }
             catch { throw; }
         }
+        public Dictionary<string,string> NapolniComboImeOpombe()
+        {
+            try
+            {
+                DataTable comb = new DataTable();
+                SqlConnection povezava = new SqlConnection(Baza_povezava);
+                povezava.Open();
+                SqlDataAdapter dacombo = new SqlDataAdapter("SELECT * FROM ImeOpombe ", povezava);
+                dacombo.Fill(comb);
+                Dictionary<string, string> ImeOpombe = new Dictionary<string, string>();
+                foreach (DataRow dr in comb.Rows)
+                {
+                    ImeOpombe.Add(dr["Id_ImeOpombe"].ToString(), dr["Ime_Opombe"].ToString());
+                }
+                povezava.Close();
+                return ImeOpombe;
+            }
+            catch { throw; }
+        }
         #region UvozPodatkov
         public void UvoziKontrole(string datkont)
         {
@@ -332,18 +351,18 @@ namespace Kmetovanje
             foreach (DataRow dr in tabela.Rows)
             {
                 int id;
-                int.TryParse(dr["IdZivS"].ToString(), out id);
-                SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Zivali WHERE IdZivS = " + id + ")"
+                int.TryParse(dr["IdZiv_S"].ToString(), out id);
+                SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Zivali WHERE IdZiv_S = " + id + ")"
                     + "UPDATE Zivali SET IdZivOrig=@IdZivOrig,ImeZiv=@ImeZiv,DatRoj=@DatRoj,Spol=@Spol,IdMatS=@IdMatS,IdOceS=@IdOceS,datizl=@datizl,izloc=@izloc,IdOce=@IdOce,IdMat=@IdMat,"
-                    + "IdPas=@IdPas,VzrokIzl=@VzrokIzl WHERE IdZivS = " + id
+                    + "IdPas=@IdPas,VzrokIzl=@VzrokIzl WHERE IdZiv_S = " + id
                     + " ELSE "
-                    + "INSERT INTO Zivali(IdZivS,IdZivOrig,ImeZiv,DatRoj,Spol,IdMatS,IdOceS,datizl,izloc,IdOce,IdMat,IdPas,VzrokIzl )"
-                    + " VALUES( @IdZivS,@IdZivOrig,@ImeZiv,@DatRoj,@Spol,@IdMatS,@IdOceS,@datizl,@izloc,@IdOce,@IdMat,@IdPas,@VzrokIzl)", povezava);
+                    + "INSERT INTO Zivali(IdZiv_S,IdZivOrig,ImeZiv,DatRoj,Spol,IdMatS,IdOceS,datizl,izloc,IdOce,IdMat,IdPas,VzrokIzl )"
+                    + " VALUES( @IdZiv_S,@IdZivOrig,@ImeZiv,@DatRoj,@Spol,@IdMatS,@IdOceS,@datizl,@izloc,@IdOce,@IdMat,@IdPas,@VzrokIzl)", povezava);
                 int zivsek;
-                if (int.TryParse(dr["IdZivS"].ToString(), out zivsek))
-                    cm.Parameters.AddWithValue("@IdZivS", zivsek);
+                if (int.TryParse(dr["IdZiv_S"].ToString(), out zivsek))
+                    cm.Parameters.AddWithValue("@IdZiv_S", zivsek);
                 else
-                    cm.Parameters.AddWithValue("IdZivS", DBNull.Value);
+                    cm.Parameters.AddWithValue("IdZiv_S", DBNull.Value);
                 int usesna;
                 if (int.TryParse(dr["IdZivOrig"].ToString(), out usesna))
                     cm.Parameters.AddWithValue("@IdZivOrig", usesna);
