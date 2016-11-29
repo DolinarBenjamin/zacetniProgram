@@ -76,8 +76,10 @@ namespace Kmetovanje
             {
                 SqlConnection povezava = new SqlConnection(Baza.Baza_povezava);
                 povezava.Open();
-                SqlCommand cm = new SqlCommand("DELETE * FROM Opombe WHERE Id_Opombe=" + Opomba, povezava);
+                SqlCommand cm = new SqlCommand("DELETE FROM Opombe WHERE Id_Opombe=" + Opomba, povezava);
+                cm.ExecuteNonQuery();
                 povezava.Close();
+                this.Hide();
             }
         }
     }

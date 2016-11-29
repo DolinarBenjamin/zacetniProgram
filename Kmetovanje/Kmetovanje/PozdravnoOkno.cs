@@ -27,8 +27,6 @@ namespace Kmetovanje
         {
             Polje nov = new Polje();
             nov.ShowDialog();
-            //this.Hide();
-            //ka pa poj k zapreš?
         }
         SQLFunkcije uvoz = new SQLFunkcije();
         private void button3_Click(object sender, EventArgs e)
@@ -36,17 +34,19 @@ namespace Kmetovanje
             uvoz.Metoda_branje();
             ofdUvoziKontrole.ShowDialog();
             DataTable tabela = uvoz.PreberiExcel(ofdUvoziKontrole.FileName);
-            if (tabela.Columns.Count == 18)
-                uvoz.UvoziKontrole(tabela);
-            else if (tabela.Columns.Count == 17)
-                uvoz.UvozKontrolMesecno(tabela);
-            else if (tabela.Columns.Count == 26)
-                uvoz.UvoziZivali(tabela);
-            else if (tabela.Columns.Count == 24)
-                uvoz.UvoziLaktacije(tabela);
-            else
-                MessageBox.Show("IZBRALI STE NAPAČNO DATOTEKO", "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            if (tabela != null)
+            {
+                if (tabela.Columns.Count == 18)
+                    uvoz.UvoziKontrole(tabela);
+                else if (tabela.Columns.Count == 17)
+                    uvoz.UvozKontrolMesecno(tabela);
+                else if (tabela.Columns.Count == 26)
+                    uvoz.UvoziZivali(tabela);
+                else if (tabela.Columns.Count == 24)
+                    uvoz.UvoziLaktacije(tabela);
+                else
+                    MessageBox.Show("IZBRALI STE NAPAČNO DATOTEKO", "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

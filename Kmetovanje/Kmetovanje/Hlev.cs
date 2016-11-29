@@ -202,7 +202,7 @@ namespace Kmetovanje
             SqlCommand cm = new SqlCommand("INSERT INTO Opombe ([IdZiv_S], [Ime_Opombe], [Opis_Opombe], [Datum_Opombe], [Stanje]) " +
                                                           "VALUES ( @Idzivs, @imeOpombe, @opis, @Datum, @Stanje)", povezava);
             cm.Parameters.AddWithValue("@Idzivs", dgwAktivneZiv.CurrentRow.Cells[0].Value.ToString());
-            cm.Parameters.AddWithValue("@imeOpombe", cbImeOpombe.SelectedValue.ToString());
+            cm.Parameters.AddWithValue("@imeOpombe", cbImeOpombe.Text.ToString());
             cm.Parameters.AddWithValue("@opis", tbOpisOpombe.Text.ToString());
             cm.Parameters.AddWithValue("@Datum", dtpDatumOpombe.Value.ToString("yyyy-MM-dd"));
             if (chebOsemPregon.Checked == true)
