@@ -32,6 +32,12 @@
             this.btnDodajOp = new System.Windows.Forms.Button();
             this.btnUredi = new System.Windows.Forms.Button();
             this.btnShrani = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbCenaOpravila = new System.Windows.Forms.TextBox();
+            this.tbImeOpravila = new System.Windows.Forms.TextBox();
+            this.cbEnotaOpravila = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwOpravila)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,11 +77,66 @@
             this.btnShrani.Text = "Shrani";
             this.btnShrani.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(676, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Ime opravila";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(676, 221);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Cena opravila";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(676, 288);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Cena na enoto";
+            // 
+            // tbCenaOpravila
+            // 
+            this.tbCenaOpravila.Location = new System.Drawing.Point(680, 244);
+            this.tbCenaOpravila.Name = "tbCenaOpravila";
+            this.tbCenaOpravila.Size = new System.Drawing.Size(249, 26);
+            this.tbCenaOpravila.TabIndex = 7;
+            // 
+            // tbImeOpravila
+            // 
+            this.tbImeOpravila.Location = new System.Drawing.Point(681, 165);
+            this.tbImeOpravila.Name = "tbImeOpravila";
+            this.tbImeOpravila.Size = new System.Drawing.Size(414, 26);
+            this.tbImeOpravila.TabIndex = 8;
+            // 
+            // cbEnotaOpravila
+            // 
+            this.cbEnotaOpravila.FormattingEnabled = true;
+            this.cbEnotaOpravila.Location = new System.Drawing.Point(681, 311);
+            this.cbEnotaOpravila.Name = "cbEnotaOpravila";
+            this.cbEnotaOpravila.Size = new System.Drawing.Size(248, 28);
+            this.cbEnotaOpravila.TabIndex = 9;
+            // 
             // Opravila
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 581);
+            this.Controls.Add(this.cbEnotaOpravila);
+            this.Controls.Add(this.tbImeOpravila);
+            this.Controls.Add(this.tbCenaOpravila);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShrani);
             this.Controls.Add(this.btnUredi);
             this.Controls.Add(this.btnDodajOp);
@@ -87,6 +148,7 @@
             this.Text = "Opravila";
             ((System.ComponentModel.ISupportInitialize)(this.dgwOpravila)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,5 +158,11 @@
         private System.Windows.Forms.Button btnDodajOp;
         private System.Windows.Forms.Button btnUredi;
         private System.Windows.Forms.Button btnShrani;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbCenaOpravila;
+        private System.Windows.Forms.TextBox tbImeOpravila;
+        private System.Windows.Forms.ComboBox cbEnotaOpravila;
     }
 }

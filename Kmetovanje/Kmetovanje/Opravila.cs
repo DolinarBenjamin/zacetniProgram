@@ -16,10 +16,12 @@ namespace Kmetovanje
         {
             InitializeComponent();
         }
-
+        SQLFunkcije oprav = new SQLFunkcije();
         private void btnUredi_Click(object sender, EventArgs e)
         {
-
+            oprav.Metoda_branje();
+            dgwOpravila.DataSource = oprav.SQLSelect("SELECT * FROM Opravila");
+            dgwOpravila.Columns[0].Visible = false;
         }
     }
 }

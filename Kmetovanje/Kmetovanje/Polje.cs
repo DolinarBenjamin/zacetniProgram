@@ -21,5 +21,13 @@ namespace Kmetovanje
         {
 
         }
+
+        private void btnOpravila_Click(object sender, EventArgs e)
+        {
+            Opravila novo = new Opravila();
+            novo.ShowDialog();
+        }
+
+       
     }
 }
