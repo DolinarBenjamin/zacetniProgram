@@ -38,12 +38,14 @@ namespace Kmetovanje
             DataTable tabela = uvoz.PreberiExcel(ofdUvoziKontrole.FileName);
             if (tabela.Columns.Count == 18)
                 uvoz.UvoziKontrole(tabela);
+            else if (tabela.Columns.Count == 17)
+                uvoz.UvozKontrolMesecno(tabela);
             else if (tabela.Columns.Count == 26)
                 uvoz.UvoziZivali(tabela);
             else if (tabela.Columns.Count == 24)
                 uvoz.UvoziLaktacije(tabela);
             else
-                MessageBox.Show("IZBRALI STE NAPAČNO DATOTEKO","NAPAKA",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("IZBRALI STE NAPAČNO DATOTEKO", "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
     }

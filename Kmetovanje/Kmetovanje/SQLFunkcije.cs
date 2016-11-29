@@ -161,13 +161,10 @@ namespace Kmetovanje
                 {
                     DateTime datumkont;
                     DateTime.TryParse(dr["datkon"].ToString(),out datumkont);
-                    
-                    int id;
-                    int.TryParse(dr["Id_Kont"].ToString(), out id);
                     int sekvenca;
                     int.TryParse(dr["IdZiv_S"].ToString(), out sekvenca);
-                    SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Kontrola WHERE Id_Kont = " + id + " AND datkon='" + datumkont.ToString("yyyy-MM-dd") + "' AND IdZiv_S=" + sekvenca + ")"
-                    + "UPDATE Kontrola SET IdZiv_S=@idZiv_S,ImeZiv=@ImeZiv,roj=@roj,idlak=@idlak,dattel=@dattel,datkon=@datkon,y161=@y161,y162a=@y162a, y163=@y163,y164=@y164,y165=@y165,y166=@y166,y167=@y167,y168=@y168 WHERE Id_Kont = " + id 
+                    SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Kontrola WHERE datkon='" + datumkont.ToString("yyyy-MM-dd") + "' AND IdZiv_S=" + sekvenca + ")"
+                    + "UPDATE Kontrola SET IdZiv_S=@idZiv_S,ImeZiv=@ImeZiv,roj=@roj,idlak=@idlak,dattel=@dattel,datkon=@datkon,y161=@y161,y162a=@y162a, y163=@y163,y164=@y164,y165=@y165,y166=@y166,y167=@y167,y168=@y168 WHERE datkon='" + datumkont.ToString("yyyy-MM-dd") + "' AND IdZiv_S=" + sekvenca
                     + " ELSE "
                     + "INSERT INTO Kontrola(idZiv_S,ImeZiv,roj,idlak,dattel,datkon,y161,y162a,y163,y164,y165,y166,y167,y168) VALUES(@idZiv_S,@ImeZiv,@roj,@idlak,@dattel,@datkon,@y161,@y162a,@y163,@y164,@y165,@y166,@y167,@y168)", povezava);
 
@@ -241,6 +238,111 @@ namespace Kmetovanje
                 }
             }    
             povezava.Close();
+        }
+
+        public string Stsekvenca(DataRow dr)
+        {
+            string sekvencna=null;
+            SqlConnection povezava = new SqlConnection(Baza_povezava);
+            povezava.Open();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT IDZiv_S from Zivali WHERE IdZivOrig=" + dr["stkrave"].ToString(),povezava);
+            DataTable tabela = new DataTable();
+            da.Fill(tabela);
+            if(tabela.Rows.Count>0)
+            {
+                sekvencna = tabela.Rows[0][0].ToString();
+            }
+            povezava.Close();
+            return sekvencna;
+
+        }
+        public void UvozKontrolMesecno(DataTable tabela)
+        {
+            SqlConnection povezava = new SqlConnection(Baza_povezava);
+            povezava.Open();
+            foreach (DataRow dr in tabela.Rows)
+            {
+                if (dr["dkontrole"].ToString() != null)
+                {
+                    DateTime datumkont;
+                    DateTime.TryParse(dr["dkontrole"].ToString(), out datumkont);
+                    int sekvenca;
+                    int.TryParse(Stsekvenca(dr), out sekvenca);
+                    SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Kontrola WHERE datkon='" + datumkont.ToString("yyyy-MM-dd") + "' AND IdZiv_S=" + sekvenca + ")"
+                                            + "UPDATE Kontrola SET IdZiv_S=@idZiv_S,ImeZiv=@ImeZiv,datkon=@datkon,y161=@y161,y162a=@y162a, y163=@y163,y164=@y164,y165=@y165,y166=@y166,y167=@y167,y168=@y168 WHERE datkon='" + datumkont.ToString("yyyy-MM-dd") + "' AND IdZiv_S=" + sekvenca
+                    + " ELSE "
+                    + "INSERT INTO Kontrola(idZiv_S,ImeZiv,datkon,y161,y162a,y163,y164,y165,y166,y167,y168) VALUES(@idZiv_S,@ImeZiv,@datkon,@y161,@y162a,@y163,@y164,@y165,@y166,@y167,@y168)", povezava);
+
+                    int kravaSek;
+                    if (sekvenca!=0)
+                        cm.Parameters.AddWithValue("@idZiv_S", sekvenca);
+                    else
+                        cm.Parameters.AddWithValue("@idZiv_S", DBNull.Value);
+                    cm.Parameters.AddWithValue("@ImeZiv", dr["imekrave"].ToString());
+                    //try
+                    //{
+                    //    cm.Parameters.AddWithValue("@roj", DateTime.Parse(dr["roj"].ToString()).ToString("yyyy-MM-dd"));
+                    //}
+                    //catch { cm.Parameters.AddWithValue("@roj", DBNull.Value); }
+                    //int laktacija;
+                    //if (int.TryParse(dr["idlak"].ToString(), out laktacija))
+                    //    cm.Parameters.AddWithValue("@idlak", laktacija);
+                    //else
+                    //    cm.Parameters.AddWithValue("@idlak", DBNull.Value);
+                    //try
+                    //{
+                    //    cm.Parameters.AddWithValue("@dattel", DateTime.Parse(dr["dattel"].ToString()).ToString("yyyy-MM-dd"));
+                    //}
+                    //catch { cm.Parameters.AddWithValue("@dattel", DBNull.Value); }
+                    try
+                    {
+                        cm.Parameters.AddWithValue("@datkon", DateTime.Parse(dr["dkontrole"].ToString()).ToString("yyyy-MM-dd"));
+                    }
+                    catch { cm.Parameters.AddWithValue("@datkon", DBNull.Value); }
+                    decimal y161;
+                    if (decimal.TryParse(dr["laktoza"].ToString(), out y161))
+                        cm.Parameters.AddWithValue("@y161", y161);
+                    else
+                        cm.Parameters.AddWithValue("@y161", DBNull.Value);
+                    decimal y162a;
+                    if (decimal.TryParse(dr["celic"].ToString(), out y162a))
+                        cm.Parameters.AddWithValue("@y162a", y162a);
+                    else
+                        cm.Parameters.AddWithValue("@y162a", DBNull.Value);
+                    decimal y163;
+                    if (decimal.TryParse(dr["urea"].ToString(), out y163))
+                        cm.Parameters.AddWithValue("@y163", y163);
+                    else
+                        cm.Parameters.AddWithValue("@y163", DBNull.Value);
+                    decimal y164;
+                    if (decimal.TryParse(dr["kgmleka"].ToString(), out y164))
+                        cm.Parameters.AddWithValue("@y164", y164);
+                    else
+                        cm.Parameters.AddWithValue("@y164", DBNull.Value);
+                    decimal y165;
+                    if (decimal.TryParse(dr["tolsca_b"].ToString(), out y165))
+                        cm.Parameters.AddWithValue("@y165", y165);
+                    else
+                        cm.Parameters.AddWithValue("@y165", DBNull.Value);
+                    decimal y166;
+                    if (decimal.TryParse(dr["tolsca"].ToString(), out y166))
+                        cm.Parameters.AddWithValue("@y166", y166);
+                    else
+                        cm.Parameters.AddWithValue("@y166", DBNull.Value);
+                    decimal y167;
+                    if (decimal.TryParse(dr["beljakovin"].ToString(), out y167))
+                        cm.Parameters.AddWithValue("@y167", y167);
+                    else
+                        cm.Parameters.AddWithValue("@y167", DBNull.Value);
+                    decimal y168;
+                    if (decimal.TryParse(dr["zmrzisce"].ToString(), out y168))
+                        cm.Parameters.AddWithValue("@y168", y168);
+                    else
+                        cm.Parameters.AddWithValue("@y168", DBNull.Value);
+                    cm.ExecuteNonQuery();
+
+                }
+            }
         }
 
         public void excelvSQL(string datkont)
@@ -373,12 +475,12 @@ namespace Kmetovanje
             foreach (DataRow dr in tabela.Rows)
             {
                 int id;
-                int.TryParse(dr["IdZivS"].ToString(), out id);
-                SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Zivali WHERE IdZivS = " + id + ")"
+                int.TryParse(dr["IdZiv_S"].ToString(), out id);
+                SqlCommand cm = new SqlCommand("IF EXISTS(SELECT NULL FROM Zivali WHERE IdZiv_S = " + id + ")"
                     + "UPDATE Zivali SET IdZivOrig=@IdZivOrig,ImeZiv=@ImeZiv,DatRoj=@DatRoj,Spol=@Spol,IdMatS=@IdMatS,IdOceS=@IdOceS,datizl=@datizl,izloc=@izloc,IdOce=@IdOce,IdMat=@IdMat,"
-                    + "IdPas=@IdPas,VzrokIzl=@VzrokIzl WHERE IdZivS = " + id
+                    + "IdPas=@IdPas,VzrokIzl=@VzrokIzl WHERE IdZiv_S = " + id
                     + " ELSE "
-                    + "INSERT INTO Zivali(IdZivS,IdZivOrig,ImeZiv,DatRoj,Spol,IdMatS,IdOceS,datizl,izloc,IdOce,IdMat,IdPas,VzrokIzl )"
+                    + "INSERT INTO Zivali(IdZiv_S,IdZivOrig,ImeZiv,DatRoj,Spol,IdMatS,IdOceS,datizl,izloc,IdOce,IdMat,IdPas,VzrokIzl )"
                     + " VALUES( @IdZivS,@IdZivOrig,@ImeZiv,@DatRoj,@Spol,@IdMatS,@IdOceS,@datizl,@izloc,@IdOce,@IdMat,@IdPas,@VzrokIzl)", povezava);
                 int zivsek;
                 if (int.TryParse(dr["IdZivS"].ToString(), out zivsek))
