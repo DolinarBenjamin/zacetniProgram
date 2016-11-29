@@ -34,8 +34,17 @@ namespace Kmetovanje
         private void button3_Click(object sender, EventArgs e)
         {
             uvoz.Metoda_branje();
-            string DatKont = "E:\\MagisterijFarm\\ZivaliNovo\\Kontrole.xlsx";
-            uvoz.UvoziKontrole(DatKont);
+            ofdUvoziKontrole.ShowDialog();
+            DataTable tabela = uvoz.PreberiExcel(ofdUvoziKontrole.FileName);
+            if (tabela.Columns.Count == 18)
+                uvoz.UvoziKontrole(tabela);
+            else if (tabela.Columns.Count == 26)
+                uvoz.UvoziZivali(tabela);
+            else if (tabela.Columns.Count == 24)
+                uvoz.UvoziLaktacije(tabela);
+            else
+                MessageBox.Show("IZBRALI STE NAPAČNO DATOTEKO","NAPAKA",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
         }
     }
 }

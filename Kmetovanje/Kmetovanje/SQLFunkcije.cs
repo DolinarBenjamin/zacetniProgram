@@ -110,11 +110,10 @@ namespace Kmetovanje
             catch { throw; }
         }
         #region UvozPodatkov
-        public void UvoziKontrole(string datkont)
+
+        public DataTable PreberiExcel(string pot)
         {
-            
-            MessageBox.Show(datkont);
-            FileStream stream = File.Open(datkont, FileMode.Open, FileAccess.Read);
+            FileStream stream = File.Open(pot, FileMode.Open, FileAccess.Read);
             //BinaryReader br =new BinaryReader( File.Open(datoteka, FileMode.Open, FileAccess.Read));
             //1. Reading from a binary Excel file ('97-2003 format; *.xls)
             //IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
@@ -130,6 +129,30 @@ namespace Kmetovanje
             DataSet result = excelReader.AsDataSet();
             DataTable tabela = new DataTable();
             tabela = result.Tables[0];
+            excelReader.Close();
+            return tabela;
+        }
+
+        public void UvoziKontrole(DataTable tabela)
+        {
+            
+            //MessageBox.Show(datkont);
+            //FileStream stream = File.Open(datkont, FileMode.Open, FileAccess.Read);
+            ////BinaryReader br =new BinaryReader( File.Open(datoteka, FileMode.Open, FileAccess.Read));
+            ////1. Reading from a binary Excel file ('97-2003 format; *.xls)
+            ////IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+            ////...
+            ////2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
+            //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            ////...
+            ////3. DataSet - The result of each spreadsheet will be created in the result.Tables
+            //// DataSet result = excelReader.AsDataSet();
+            ////...
+            ////4. DataSet - Create column names from first row
+            //excelReader.IsFirstRowAsColumnNames = true;
+            //DataSet result = excelReader.AsDataSet();
+            //DataTable tabela = new DataTable();
+            //tabela = result.Tables[0];
             SqlConnection povezava = new SqlConnection(Baza_povezava);
             povezava.Open();
             foreach (DataRow dr in tabela.Rows)
@@ -218,8 +241,8 @@ namespace Kmetovanje
                 }
             }    
             povezava.Close();
-            excelReader.Close();
         }
+
         public void excelvSQL(string datkont)
         {
             FileStream stream = File.Open(datkont, FileMode.Open, FileAccess.Read);
@@ -327,25 +350,24 @@ namespace Kmetovanje
             excelReader.Close();
         }
 
-        public void UvoziZivali(string datotekaKrave)
+        public void UvoziZivali(DataTable tabela)
         {
-
-            FileStream stream = File.Open(datotekaKrave, FileMode.Open, FileAccess.Read);
-            //BinaryReader br =new BinaryReader( File.Open(datoteka, FileMode.Open, FileAccess.Read));
-            //1. Reading from a binary Excel file ('97-2003 format; *.xls)
-            //IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
-            //...
-            //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
-            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-            //...
-            //3. DataSet - The result of each spreadsheet will be created in the result.Tables
-            // DataSet result = excelReader.AsDataSet();
-            //...
-            //4. DataSet - Create column names from first row
-            excelReader.IsFirstRowAsColumnNames = true;
-            DataSet result = excelReader.AsDataSet();
-            DataTable tabela = new DataTable();
-            tabela = result.Tables[0];
+            //FileStream stream = File.Open(datotekaKrave, FileMode.Open, FileAccess.Read);
+            ////BinaryReader br =new BinaryReader( File.Open(datoteka, FileMode.Open, FileAccess.Read));
+            ////1. Reading from a binary Excel file ('97-2003 format; *.xls)
+            ////IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+            ////...
+            ////2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
+            //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            ////...
+            ////3. DataSet - The result of each spreadsheet will be created in the result.Tables
+            //// DataSet result = excelReader.AsDataSet();
+            ////...
+            ////4. DataSet - Create column names from first row
+            //excelReader.IsFirstRowAsColumnNames = true;
+            //DataSet result = excelReader.AsDataSet();
+            //DataTable tabela = new DataTable();
+            //tabela = result.Tables[0];
             SqlConnection povezava = new SqlConnection(Baza_povezava);
             povezava.Open();
             foreach (DataRow dr in tabela.Rows)
@@ -418,8 +440,14 @@ namespace Kmetovanje
             //}
 
             //6. Free resources (IExcelDataReader is IDisposable)
-            excelReader.Close();
+
         }
+
+        public void UvoziLaktacije(DataTable tabela)
+        {
+
+        }
+        
         #endregion
     }
 }
