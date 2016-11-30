@@ -28,6 +28,9 @@ namespace Kmetovanje
             novo.ShowDialog();
         }
 
-       
+        private void tbnDodajNovoPovrsino_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
