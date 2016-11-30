@@ -31,15 +31,15 @@
             this.tcPolje = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnOpravila = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbPoljeVnos = new System.Windows.Forms.GroupBox();
             this.btnIzracNaklona = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbIzracunVProc = new System.Windows.Forms.TextBox();
+            this.tbPolGERKPID = new System.Windows.Forms.TextBox();
+            this.tbPolDomaceIme = new System.Windows.Forms.TextBox();
+            this.tbPolVelikostP = new System.Windows.Forms.TextBox();
+            this.tbPolNaklon = new System.Windows.Forms.TextBox();
+            this.cbPolRaba = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             this.tbIzracunSkupKol = new System.Windows.Forms.TextBox();
             this.tbIracunVlozka = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgwPopravki = new System.Windows.Forms.DataGridView();
             this.btnPopUredi = new System.Windows.Forms.Button();
             this.btnPopShrani = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -109,7 +109,7 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.tcPolje.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbPoljeVnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwPovrsine)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.gbPobranaKolicina.SuspendLayout();
@@ -120,7 +120,7 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwIzracunCene)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPopravki)).BeginInit();
             this.gbPopFFSGnojilo.SuspendLayout();
             this.gbPopPobranaKol.SuspendLayout();
             this.SuspendLayout();
@@ -137,11 +137,12 @@
             this.tcPolje.SelectedIndex = 0;
             this.tcPolje.Size = new System.Drawing.Size(1240, 557);
             this.tcPolje.TabIndex = 0;
+            this.tcPolje.SelectedIndexChanged += new System.EventHandler(this.tcPolje_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.btnOpravila);
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.gbPoljeVnos);
             this.tabPage1.Controls.Add(this.btnUredi);
             this.tabPage1.Controls.Add(this.btnShrani);
             this.tabPage1.Controls.Add(this.tbnDodajNovoPovrsino);
@@ -165,27 +166,27 @@
             this.btnOpravila.UseVisualStyleBackColor = true;
             this.btnOpravila.Click += new System.EventHandler(this.btnOpravila_Click);
             // 
-            // groupBox1
+            // gbPoljeVnos
             // 
-            this.groupBox1.Controls.Add(this.btnIzracNaklona);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(670, 68);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 368);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
+            this.gbPoljeVnos.Controls.Add(this.btnIzracNaklona);
+            this.gbPoljeVnos.Controls.Add(this.label7);
+            this.gbPoljeVnos.Controls.Add(this.tbIzracunVProc);
+            this.gbPoljeVnos.Controls.Add(this.tbPolGERKPID);
+            this.gbPoljeVnos.Controls.Add(this.tbPolDomaceIme);
+            this.gbPoljeVnos.Controls.Add(this.tbPolVelikostP);
+            this.gbPoljeVnos.Controls.Add(this.tbPolNaklon);
+            this.gbPoljeVnos.Controls.Add(this.cbPolRaba);
+            this.gbPoljeVnos.Controls.Add(this.label6);
+            this.gbPoljeVnos.Controls.Add(this.label5);
+            this.gbPoljeVnos.Controls.Add(this.label4);
+            this.gbPoljeVnos.Controls.Add(this.label3);
+            this.gbPoljeVnos.Controls.Add(this.label2);
+            this.gbPoljeVnos.Controls.Add(this.label1);
+            this.gbPoljeVnos.Location = new System.Drawing.Point(670, 68);
+            this.gbPoljeVnos.Name = "gbPoljeVnos";
+            this.gbPoljeVnos.Size = new System.Drawing.Size(396, 368);
+            this.gbPoljeVnos.TabIndex = 4;
+            this.gbPoljeVnos.TabStop = false;
             // 
             // btnIzracNaklona
             // 
@@ -204,48 +205,49 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "%";
             // 
-            // textBox5
+            // tbIzracunVProc
             // 
-            this.textBox5.Location = new System.Drawing.Point(216, 173);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(79, 29);
-            this.textBox5.TabIndex = 11;
+            this.tbIzracunVProc.Location = new System.Drawing.Point(216, 173);
+            this.tbIzracunVProc.Name = "tbIzracunVProc";
+            this.tbIzracunVProc.Size = new System.Drawing.Size(79, 29);
+            this.tbIzracunVProc.TabIndex = 11;
+            this.tbIzracunVProc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbIzracunVProc_KeyPress);
             // 
-            // textBox4
+            // tbPolGERKPID
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 320);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(208, 29);
-            this.textBox4.TabIndex = 10;
+            this.tbPolGERKPID.Location = new System.Drawing.Point(15, 320);
+            this.tbPolGERKPID.Name = "tbPolGERKPID";
+            this.tbPolGERKPID.Size = new System.Drawing.Size(208, 29);
+            this.tbPolGERKPID.TabIndex = 10;
             // 
-            // textBox3
+            // tbPolDomaceIme
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 52);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(309, 29);
-            this.textBox3.TabIndex = 9;
+            this.tbPolDomaceIme.Location = new System.Drawing.Point(15, 52);
+            this.tbPolDomaceIme.Name = "tbPolDomaceIme";
+            this.tbPolDomaceIme.Size = new System.Drawing.Size(309, 29);
+            this.tbPolDomaceIme.TabIndex = 9;
             // 
-            // textBox2
+            // tbPolVelikostP
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 29);
-            this.textBox2.TabIndex = 8;
+            this.tbPolVelikostP.Location = new System.Drawing.Point(15, 114);
+            this.tbPolVelikostP.Name = "tbPolVelikostP";
+            this.tbPolVelikostP.Size = new System.Drawing.Size(165, 29);
+            this.tbPolVelikostP.TabIndex = 8;
             // 
-            // textBox1
+            // tbPolNaklon
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 173);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 29);
-            this.textBox1.TabIndex = 7;
+            this.tbPolNaklon.Location = new System.Drawing.Point(15, 173);
+            this.tbPolNaklon.Name = "tbPolNaklon";
+            this.tbPolNaklon.Size = new System.Drawing.Size(165, 29);
+            this.tbPolNaklon.TabIndex = 7;
             // 
-            // comboBox1
+            // cbPolRaba
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(15, 235);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(309, 32);
-            this.comboBox1.TabIndex = 6;
+            this.cbPolRaba.FormattingEnabled = true;
+            this.cbPolRaba.Location = new System.Drawing.Point(15, 235);
+            this.cbPolRaba.Name = "cbPolRaba";
+            this.cbPolRaba.Size = new System.Drawing.Size(309, 32);
+            this.cbPolRaba.TabIndex = 6;
             // 
             // label6
             // 
@@ -310,6 +312,7 @@
             this.btnUredi.TabIndex = 3;
             this.btnUredi.Text = "Uredi";
             this.btnUredi.UseVisualStyleBackColor = true;
+            this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
             // 
             // btnShrani
             // 
@@ -338,6 +341,7 @@
             this.dgwPovrsine.Name = "dgwPovrsine";
             this.dgwPovrsine.Size = new System.Drawing.Size(604, 508);
             this.dgwPovrsine.TabIndex = 0;
+            this.dgwPovrsine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwPovrsine_CellClick);
             // 
             // tabPage2
             // 
@@ -563,7 +567,7 @@
             this.tabPage4.Controls.Add(this.label20);
             this.tabPage4.Controls.Add(this.btnPopShrani);
             this.tabPage4.Controls.Add(this.btnPopUredi);
-            this.tabPage4.Controls.Add(this.dataGridView2);
+            this.tabPage4.Controls.Add(this.dgwPopravki);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1232, 520);
@@ -681,13 +685,13 @@
             this.label19.TabIndex = 13;
             this.label19.Text = "Eurov";
             // 
-            // dataGridView2
+            // dgwPopravki
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(5, 5);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(816, 512);
-            this.dataGridView2.TabIndex = 0;
+            this.dgwPopravki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwPopravki.Location = new System.Drawing.Point(5, 5);
+            this.dgwPopravki.Name = "dgwPopravki";
+            this.dgwPopravki.Size = new System.Drawing.Size(816, 512);
+            this.dgwPopravki.TabIndex = 0;
             // 
             // btnPopUredi
             // 
@@ -804,6 +808,7 @@
             this.gbPopFFSGnojilo.Size = new System.Drawing.Size(402, 175);
             this.gbPopFFSGnojilo.TabIndex = 13;
             this.gbPopFFSGnojilo.TabStop = false;
+            this.gbPopFFSGnojilo.Visible = false;
             // 
             // label25
             // 
@@ -863,6 +868,7 @@
             this.gbPopPobranaKol.TabIndex = 14;
             this.gbPopPobranaKol.TabStop = false;
             this.gbPopPobranaKol.Text = "Količina pridelka v tonah";
+            this.gbPopPobranaKol.Visible = false;
             // 
             // textBox12
             // 
@@ -884,8 +890,8 @@
             this.Load += new System.EventHandler(this.Polje_Load);
             this.tcPolje.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbPoljeVnos.ResumeLayout(false);
+            this.gbPoljeVnos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwPovrsine)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -901,7 +907,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwIzracunCene)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPopravki)).EndInit();
             this.gbPopFFSGnojilo.ResumeLayout(false);
             this.gbPopFFSGnojilo.PerformLayout();
             this.gbPopPobranaKol.ResumeLayout(false);
@@ -919,15 +925,15 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dgwPovrsine;
         private System.Windows.Forms.Button btnOpravila;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbPoljeVnos;
         private System.Windows.Forms.Button btnIzracNaklona;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tbIzracunVProc;
+        private System.Windows.Forms.TextBox tbPolGERKPID;
+        private System.Windows.Forms.TextBox tbPolDomaceIme;
+        private System.Windows.Forms.TextBox tbPolVelikostP;
+        private System.Windows.Forms.TextBox tbPolNaklon;
+        private System.Windows.Forms.ComboBox cbPolRaba;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -990,6 +996,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnPopShrani;
         private System.Windows.Forms.Button btnPopUredi;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgwPopravki;
     }
 }
