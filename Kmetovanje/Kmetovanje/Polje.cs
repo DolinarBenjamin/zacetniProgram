@@ -16,7 +16,7 @@ namespace Kmetovanje
         {
             InitializeComponent();
         }
-        
+
         private void Polje_Load(object sender, EventArgs e)
         {
 
@@ -28,9 +28,6 @@ namespace Kmetovanje
             novo.ShowDialog();
         }
 
-        private void tbnDodajNovoPovrsino_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

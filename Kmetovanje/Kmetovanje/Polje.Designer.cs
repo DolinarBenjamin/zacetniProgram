@@ -70,43 +70,43 @@
             this.dgwOpraviloNaParceli = new System.Windows.Forms.DataGridView();
             this.dgwParcela = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tbIracunVlozka = new System.Windows.Forms.TextBox();
-            this.tbIzracunSkupKol = new System.Windows.Forms.TextBox();
-            this.tbIzracunLastCena = new System.Windows.Forms.TextBox();
-            this.cbIzracunKulture = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btnIzpis = new System.Windows.Forms.Button();
-            this.btnSkropljenje = new System.Windows.Forms.Button();
             this.dgwIzracunCene = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnSkropljenje = new System.Windows.Forms.Button();
+            this.btnIzpis = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cbIzracunKulture = new System.Windows.Forms.ComboBox();
+            this.tbIzracunLastCena = new System.Windows.Forms.TextBox();
+            this.tbIzracunSkupKol = new System.Windows.Forms.TextBox();
+            this.tbIracunVlozka = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnPopUredi = new System.Windows.Forms.Button();
+            this.btnPopShrani = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label24 = new System.Windows.Forms.Label();
+            this.gbPopFFSGnojilo = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.gbPopPobranaKol = new System.Windows.Forms.GroupBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
-            this.gbPopFFSGnojilo = new System.Windows.Forms.GroupBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btnPopShrani = new System.Windows.Forms.Button();
-            this.btnPopUredi = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tcPolje.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -120,9 +120,9 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwIzracunCene)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.gbPopPobranaKol.SuspendLayout();
-            this.gbPopFFSGnojilo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.gbPopFFSGnojilo.SuspendLayout();
+            this.gbPopPobranaKol.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcPolje
@@ -330,7 +330,6 @@
             this.tbnDodajNovoPovrsino.TabIndex = 1;
             this.tbnDodajNovoPovrsino.Text = "Nova površina";
             this.tbnDodajNovoPovrsino.UseVisualStyleBackColor = true;
-            this.tbnDodajNovoPovrsino.Click += new System.EventHandler(this.tbnDodajNovoPovrsino_Click);
             // 
             // dgwPovrsine
             // 
@@ -540,116 +539,6 @@
             this.tabPage3.Text = "Izračun cene";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1146, 279);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 24);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "Eurov";
-            // 
-            // tbIracunVlozka
-            // 
-            this.tbIracunVlozka.Location = new System.Drawing.Point(956, 122);
-            this.tbIracunVlozka.Name = "tbIracunVlozka";
-            this.tbIracunVlozka.Size = new System.Drawing.Size(184, 29);
-            this.tbIracunVlozka.TabIndex = 12;
-            // 
-            // tbIzracunSkupKol
-            // 
-            this.tbIzracunSkupKol.Location = new System.Drawing.Point(956, 198);
-            this.tbIzracunSkupKol.Name = "tbIzracunSkupKol";
-            this.tbIzracunSkupKol.Size = new System.Drawing.Size(184, 29);
-            this.tbIzracunSkupKol.TabIndex = 11;
-            // 
-            // tbIzracunLastCena
-            // 
-            this.tbIzracunLastCena.Location = new System.Drawing.Point(956, 276);
-            this.tbIzracunLastCena.Name = "tbIzracunLastCena";
-            this.tbIzracunLastCena.Size = new System.Drawing.Size(184, 29);
-            this.tbIzracunLastCena.TabIndex = 10;
-            // 
-            // cbIzracunKulture
-            // 
-            this.cbIzracunKulture.FormattingEnabled = true;
-            this.cbIzracunKulture.Location = new System.Drawing.Point(956, 43);
-            this.cbIzracunKulture.Name = "cbIzracunKulture";
-            this.cbIzracunKulture.Size = new System.Drawing.Size(259, 32);
-            this.cbIzracunKulture.TabIndex = 9;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(952, 16);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(102, 24);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "Ime kulture";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(952, 95);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(148, 24);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "Vloženega truda";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(952, 171);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(228, 24);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Skupno pridelane količine";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(952, 249);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(248, 24);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Naša cena za pridelavo tone";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1146, 125);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 24);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Eurov";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1146, 201);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 24);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Ton";
-            // 
-            // btnIzpis
-            // 
-            this.btnIzpis.Location = new System.Drawing.Point(1015, 388);
-            this.btnIzpis.Name = "btnIzpis";
-            this.btnIzpis.Size = new System.Drawing.Size(114, 45);
-            this.btnIzpis.TabIndex = 2;
-            this.btnIzpis.Text = "Izpis";
-            this.btnIzpis.UseVisualStyleBackColor = true;
-            // 
-            // btnSkropljenje
-            // 
-            this.btnSkropljenje.Location = new System.Drawing.Point(990, 454);
-            this.btnSkropljenje.Name = "btnSkropljenje";
-            this.btnSkropljenje.Size = new System.Drawing.Size(175, 44);
-            this.btnSkropljenje.TabIndex = 1;
-            this.btnSkropljenje.Text = "Izpis škropljenj";
-            this.btnSkropljenje.UseVisualStyleBackColor = true;
-            // 
             // dgwIzracunCene
             // 
             this.dgwIzracunCene.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -682,6 +571,289 @@
             this.tabPage4.Text = "Popravi opravilo";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnSkropljenje
+            // 
+            this.btnSkropljenje.Location = new System.Drawing.Point(990, 454);
+            this.btnSkropljenje.Name = "btnSkropljenje";
+            this.btnSkropljenje.Size = new System.Drawing.Size(175, 44);
+            this.btnSkropljenje.TabIndex = 1;
+            this.btnSkropljenje.Text = "Izpis škropljenj";
+            this.btnSkropljenje.UseVisualStyleBackColor = true;
+            // 
+            // btnIzpis
+            // 
+            this.btnIzpis.Location = new System.Drawing.Point(1015, 388);
+            this.btnIzpis.Name = "btnIzpis";
+            this.btnIzpis.Size = new System.Drawing.Size(114, 45);
+            this.btnIzpis.TabIndex = 2;
+            this.btnIzpis.Text = "Izpis";
+            this.btnIzpis.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1146, 201);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 24);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Ton";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1146, 125);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 24);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Eurov";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(952, 249);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(248, 24);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Naša cena za pridelavo tone";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(952, 171);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(228, 24);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Skupno pridelane količine";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(952, 95);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(148, 24);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Vloženega truda";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(952, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(102, 24);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Ime kulture";
+            // 
+            // cbIzracunKulture
+            // 
+            this.cbIzracunKulture.FormattingEnabled = true;
+            this.cbIzracunKulture.Location = new System.Drawing.Point(956, 43);
+            this.cbIzracunKulture.Name = "cbIzracunKulture";
+            this.cbIzracunKulture.Size = new System.Drawing.Size(259, 32);
+            this.cbIzracunKulture.TabIndex = 9;
+            // 
+            // tbIzracunLastCena
+            // 
+            this.tbIzracunLastCena.Location = new System.Drawing.Point(956, 276);
+            this.tbIzracunLastCena.Name = "tbIzracunLastCena";
+            this.tbIzracunLastCena.Size = new System.Drawing.Size(184, 29);
+            this.tbIzracunLastCena.TabIndex = 10;
+            // 
+            // tbIzracunSkupKol
+            // 
+            this.tbIzracunSkupKol.Location = new System.Drawing.Point(956, 198);
+            this.tbIzracunSkupKol.Name = "tbIzracunSkupKol";
+            this.tbIzracunSkupKol.Size = new System.Drawing.Size(184, 29);
+            this.tbIzracunSkupKol.TabIndex = 11;
+            // 
+            // tbIracunVlozka
+            // 
+            this.tbIracunVlozka.Location = new System.Drawing.Point(956, 122);
+            this.tbIracunVlozka.Name = "tbIracunVlozka";
+            this.tbIracunVlozka.Size = new System.Drawing.Size(184, 29);
+            this.tbIracunVlozka.TabIndex = 12;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1146, 279);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 24);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "Eurov";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(5, 5);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(816, 512);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // btnPopUredi
+            // 
+            this.btnPopUredi.Location = new System.Drawing.Point(859, 5);
+            this.btnPopUredi.Name = "btnPopUredi";
+            this.btnPopUredi.Size = new System.Drawing.Size(110, 42);
+            this.btnPopUredi.TabIndex = 1;
+            this.btnPopUredi.Text = "Uredi";
+            this.btnPopUredi.UseVisualStyleBackColor = true;
+            // 
+            // btnPopShrani
+            // 
+            this.btnPopShrani.Location = new System.Drawing.Point(1041, 5);
+            this.btnPopShrani.Name = "btnPopShrani";
+            this.btnPopShrani.Size = new System.Drawing.Size(112, 42);
+            this.btnPopShrani.TabIndex = 2;
+            this.btnPopShrani.Text = "Shrani";
+            this.btnPopShrani.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(836, 65);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(102, 24);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Ime kulture";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(836, 112);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(82, 24);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "Površina";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(836, 158);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(80, 24);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "Opravilo";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(836, 205);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(125, 24);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Cena opravila";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(944, 62);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(270, 32);
+            this.comboBox3.TabIndex = 7;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(944, 109);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(270, 32);
+            this.comboBox4.TabIndex = 8;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(944, 155);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(270, 32);
+            this.comboBox5.TabIndex = 9;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(976, 202);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(238, 29);
+            this.textBox9.TabIndex = 10;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(976, 251);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(238, 29);
+            this.dateTimePicker2.TabIndex = 11;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(836, 255);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(134, 24);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "Datum opravila";
+            // 
+            // gbPopFFSGnojilo
+            // 
+            this.gbPopFFSGnojilo.Controls.Add(this.comboBox6);
+            this.gbPopFFSGnojilo.Controls.Add(this.textBox11);
+            this.gbPopFFSGnojilo.Controls.Add(this.textBox10);
+            this.gbPopFFSGnojilo.Controls.Add(this.label27);
+            this.gbPopFFSGnojilo.Controls.Add(this.label26);
+            this.gbPopFFSGnojilo.Controls.Add(this.label25);
+            this.gbPopFFSGnojilo.Location = new System.Drawing.Point(827, 285);
+            this.gbPopFFSGnojilo.Name = "gbPopFFSGnojilo";
+            this.gbPopFFSGnojilo.Size = new System.Drawing.Size(402, 175);
+            this.gbPopFFSGnojilo.TabIndex = 13;
+            this.gbPopFFSGnojilo.TabStop = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(9, 34);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(70, 24);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "label25";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(9, 77);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(168, 24);
+            this.label26.TabIndex = 1;
+            this.label26.Text = "Porabljena količina";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(9, 130);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(157, 24);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Cena na Kilo/Liter";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(183, 125);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(204, 29);
+            this.textBox10.TabIndex = 3;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(183, 74);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(204, 29);
+            this.textBox11.TabIndex = 4;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(183, 26);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(204, 32);
+            this.comboBox6.TabIndex = 5;
+            // 
             // gbPopPobranaKol
             // 
             this.gbPopPobranaKol.Controls.Add(this.textBox12);
@@ -698,179 +870,6 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(204, 29);
             this.textBox12.TabIndex = 0;
-            // 
-            // gbPopFFSGnojilo
-            // 
-            this.gbPopFFSGnojilo.Controls.Add(this.comboBox6);
-            this.gbPopFFSGnojilo.Controls.Add(this.textBox11);
-            this.gbPopFFSGnojilo.Controls.Add(this.textBox10);
-            this.gbPopFFSGnojilo.Controls.Add(this.label27);
-            this.gbPopFFSGnojilo.Controls.Add(this.label26);
-            this.gbPopFFSGnojilo.Controls.Add(this.label25);
-            this.gbPopFFSGnojilo.Location = new System.Drawing.Point(827, 285);
-            this.gbPopFFSGnojilo.Name = "gbPopFFSGnojilo";
-            this.gbPopFFSGnojilo.Size = new System.Drawing.Size(402, 175);
-            this.gbPopFFSGnojilo.TabIndex = 13;
-            this.gbPopFFSGnojilo.TabStop = false;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(183, 26);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(204, 32);
-            this.comboBox6.TabIndex = 5;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(183, 74);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(204, 29);
-            this.textBox11.TabIndex = 4;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(183, 125);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(204, 29);
-            this.textBox10.TabIndex = 3;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 130);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(157, 24);
-            this.label27.TabIndex = 2;
-            this.label27.Text = "Cena na Kilo/Liter";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(9, 77);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(168, 24);
-            this.label26.TabIndex = 1;
-            this.label26.Text = "Porabljena količina";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(9, 34);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(70, 24);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "label25";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(836, 255);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(134, 24);
-            this.label24.TabIndex = 12;
-            this.label24.Text = "Datum opravila";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(976, 251);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(238, 29);
-            this.dateTimePicker2.TabIndex = 11;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(976, 202);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(238, 29);
-            this.textBox9.TabIndex = 10;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(944, 155);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(270, 32);
-            this.comboBox5.TabIndex = 9;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(944, 109);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(270, 32);
-            this.comboBox4.TabIndex = 8;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(944, 62);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(270, 32);
-            this.comboBox3.TabIndex = 7;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(836, 205);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(125, 24);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "Cena opravila";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(836, 158);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(80, 24);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "Opravilo";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(836, 112);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(82, 24);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "Površina";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(836, 65);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(102, 24);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "Ime kulture";
-            // 
-            // btnPopShrani
-            // 
-            this.btnPopShrani.Location = new System.Drawing.Point(1041, 5);
-            this.btnPopShrani.Name = "btnPopShrani";
-            this.btnPopShrani.Size = new System.Drawing.Size(112, 42);
-            this.btnPopShrani.TabIndex = 2;
-            this.btnPopShrani.Text = "Shrani";
-            this.btnPopShrani.UseVisualStyleBackColor = true;
-            // 
-            // btnPopUredi
-            // 
-            this.btnPopUredi.Location = new System.Drawing.Point(859, 5);
-            this.btnPopUredi.Name = "btnPopUredi";
-            this.btnPopUredi.Size = new System.Drawing.Size(110, 42);
-            this.btnPopUredi.TabIndex = 1;
-            this.btnPopUredi.Text = "Uredi";
-            this.btnPopUredi.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(5, 5);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(816, 512);
-            this.dataGridView2.TabIndex = 0;
             // 
             // Polje
             // 
@@ -902,11 +901,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwIzracunCene)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.gbPopPobranaKol.ResumeLayout(false);
-            this.gbPopPobranaKol.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.gbPopFFSGnojilo.ResumeLayout(false);
             this.gbPopFFSGnojilo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.gbPopPobranaKol.ResumeLayout(false);
+            this.gbPopPobranaKol.PerformLayout();
             this.ResumeLayout(false);
 
         }
