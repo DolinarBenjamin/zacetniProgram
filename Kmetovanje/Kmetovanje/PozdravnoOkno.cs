@@ -31,22 +31,26 @@ namespace Kmetovanje
         SQLFunkcije uvoz = new SQLFunkcije();
         private void button3_Click(object sender, EventArgs e)
         {
-            uvoz.Metoda_branje();
-            ofdUvoziKontrole.ShowDialog();
-            DataTable tabela = uvoz.PreberiExcel(ofdUvoziKontrole.FileName);
-            if (tabela != null)
+            try
             {
-                if (tabela.Columns.Count == 18)
-                    uvoz.UvoziKontrole(tabela);
-                else if (tabela.Columns.Count == 17)
-                    uvoz.UvozKontrolMesecno(tabela);
-                else if (tabela.Columns.Count == 26)
-                    uvoz.UvoziZivali(tabela);
-                else if (tabela.Columns.Count == 24)
-                    uvoz.UvoziLaktacije(tabela);
-                else
-                    MessageBox.Show("IZBRALI STE NAPAČNO DATOTEKO", "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                uvoz.Metoda_branje();
+                ofdUvoziKontrole.ShowDialog();
+                DataTable tabela = uvoz.PreberiExcel(ofdUvoziKontrole.FileName);
+                if (tabela != null)
+                {
+                    if (tabela.Columns.Count == 18)
+                        uvoz.UvoziKontrole(tabela);
+                    else if (tabela.Columns.Count == 17)
+                        uvoz.UvozKontrolMesecno(tabela);
+                    else if (tabela.Columns.Count == 26)
+                        uvoz.UvoziZivali(tabela);
+                    else if (tabela.Columns.Count == 24)
+                        uvoz.UvoziLaktacije(tabela);
+                    else
+                        MessageBox.Show("IZBRALI STE NAPAČNO DATOTEKO", "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            catch(Exception ex) { MessageBox.Show("PRIŠLO JE DO NAPAKE PRI UVOZU PODATKOV\n"+ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }
