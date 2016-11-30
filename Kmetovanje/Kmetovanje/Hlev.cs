@@ -43,7 +43,7 @@ namespace Kmetovanje
                 cbImeOpombe.SelectedIndex = -1;
                 dgwAktivneZiv.ClearSelection();
             }
-            catch (Exception ex) { MessageBox.Show("Prišlo je do napake\n" + ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch { }
         }
 
         private void tcHlev_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,13 +132,12 @@ namespace Kmetovanje
         private void dtpDatumOsemPreg_ValueChanged(object sender, EventArgs e)
         {
             try
+            { 
+            if (cbOsemPreg.SelectedIndex == 0)
             {
-                if (cbOsemPreg.SelectedIndex == 0)
-                {
-                    dtpPredvidenPregTel.Value = dtpDatumOsemPreg.Value.AddDays(42);
-                }
+                dtpPredvidenPregTel.Value = dtpDatumOsemPreg.Value.AddDays(42);
             }
-            catch (Exception ex) { MessageBox.Show("Prišlo je do napake\n" + ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+             catch { }
         }
 
         private void cbOsemPreg_SelectedIndexChanged(object sender, EventArgs e)
@@ -265,7 +264,7 @@ namespace Kmetovanje
                 tbIzbranaZival.Clear();
                 tbIzbranaZival.Focus();
             }
-            catch (Exception ex) { MessageBox.Show("Prišlo je do napake\n" + ex.Message, "NAPAKA", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch { }
         }
     }
 }
